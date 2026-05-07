@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { db } from '../firebase';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { ref, push } from 'firebase/database';
 import './RegistrationForm.css';
 
 const RegistrationForm = () => {
@@ -39,10 +39,10 @@ const RegistrationForm = () => {
         } else {
             // Final Submission Logic
             try {
-                // 1. Save to Persistent Firestore Database
-                await addDoc(collection(db, 'registrations'), {
+                // 1. Save to Firebase Realtime Database
+                await push(ref(db, 'registrations'), {
                     ...formData,
-                    timestamp: serverTimestamp()
+                    timestamp: new Date().toISOString()
                 });
 
                 // 2. Trigger Email Notification (Vercel Serverless Function)
