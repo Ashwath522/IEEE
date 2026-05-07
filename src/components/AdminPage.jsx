@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { collection, query, orderBy, onSnapshot } from 'firebase/firestore';
+import { ref, onValue } from 'firebase/database';
 import { db } from '../firebase';
 import AdminCommittee from './AdminCommittee';
 import AdminImages from './AdminImages';
@@ -20,13 +20,19 @@ const AdminPage = ({ onBack }) => {
     setLoading(true);
     setError(null);
     
-    const q = query(collection(db, 'registrations'), orderBy('created_at', 'desc'));
+    const registrationsRef = ref(db, 'registrations');
     
-    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+    const unsubscribe = onValue(registrationsRef, (snapshot) => {
+      const data = snapshot.val();
       const docs = [];
-      querySnapshot.forEach((doc) => {
-        docs.push({ id: doc.id, ...doc.data() });
-      });
+      
+      if (data) {
+        Object.keys(data).forEach((key) => {
+          docs.push({ id: key, ...data[key] });
+        });
+        // Sort by timestamp descending
+        docs.sort((a, b) => new Date(b.timestamp || b.created_at) - new Date(a.timestamp || a.created_at));
+      }
       
       setRegistrations(docs);
       setStats({
@@ -36,7 +42,7 @@ const AdminPage = ({ onBack }) => {
       });
       setLoading(false);
     }, (err) => {
-      console.error("Firestore error:", err);
+      console.error("Firebase error:", err);
       setError("Connection Error: Failed to sync with Firebase. Check your configuration.");
       setLoading(false);
     });
@@ -148,7 +154,8 @@ const AdminPage = ({ onBack }) => {
                         onClick={() => {
                           const headers = 'Name,USN,Branch,Semester,Phone,Email,RegistrationDate\n';
                           const csv = registrations.map(row => {
-                            const date = row.created_at?.toDate ? row.created_at.toDate().toISOString() : new Date(row.created_at).toISOString();
+                            const rawDate = row.timestamp || row.created_at;
+                            const date = rawDate?.toDate ? rawDate.toDate().toISOString() : new Date(rawDate).toISOString();
                             return `"${row.name}","${row.usn}","${row.branch}",${row.sem},"${row.phone}","${row.email}","${date}"`;
                           }).join('\n');
                           const blob = new Blob([headers + csv], { type: 'text/csv' });
@@ -168,7 +175,8 @@ const AdminPage = ({ onBack }) => {
                           let sql = '-- IEEE Conference Registrations Export\n';
                           sql += '-- Generated at: ' + new Date().toISOString() + '\n\n';
                           registrations.forEach(row => {
-                            const dateStr = row.created_at?.toDate ? row.created_at.toDate().toISOString().slice(0, 19).replace('T', ' ') : new Date(row.created_at).toISOString().slice(0, 19).replace('T', ' ');
+                            const rawDate = row.timestamp || row.created_at;
+                            const dateStr = rawDate?.toDate ? rawDate.toDate().toISOString().slice(0, 19).replace('T', ' ') : new Date(rawDate).toISOString().slice(0, 19).replace('T', ' ');
                             sql += `INSERT INTO registrations (name, usn, branch, sem, phone, email, created_at) VALUES ('${row.name}', '${row.usn}', '${row.branch}', ${row.sem}, '${row.phone}', '${row.email}', '${dateStr}');\n`;
                           });
                           const blob = new Blob([sql], { type: 'text/sql' });

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { collection, addDoc, onSnapshot, deleteDoc, doc, query, orderBy } from 'firebase/firestore';
+import { ref, push, onValue, remove } from 'firebase/database';
 import { db } from '../firebase';
 
 const AdminImages = () => {
@@ -8,10 +8,16 @@ const AdminImages = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const q = query(collection(db, 'images'), orderBy('name', 'asc'));
-        const unsubscribe = onSnapshot(q, (snapshot) => {
-            const docs = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-            setImages(docs);
+        const imagesRef = ref(db, 'images');
+        const unsubscribe = onValue(imagesRef, (snapshot) => {
+            const data = snapshot.val();
+            if (data) {
+                const docs = Object.keys(data).map(key => ({ id: key, ...data[key] }));
+                docs.sort((a, b) => a.name.localeCompare(b.name));
+                setImages(docs);
+            } else {
+                setImages([]);
+            }
             setLoading(false);
         });
         return () => unsubscribe();
@@ -22,9 +28,9 @@ const AdminImages = () => {
         if (!newImage.name || !newImage.url) return;
         
         try {
-            await addDoc(collection(db, 'images'), {
+            await push(ref(db, 'images'), {
                 ...newImage,
-                created_at: new Date()
+                created_at: new Date().toISOString()
             });
             setNewImage({ name: '', url: '' });
         } catch (error) {
@@ -35,7 +41,7 @@ const AdminImages = () => {
     const handleDeleteImage = async (id) => {
         if (window.confirm('Delete this image reference?')) {
             try {
-                await deleteDoc(doc(db, 'images', id));
+                await remove(ref(db, `images/${id}`));
             } catch (error) {
                 console.error("Error deleting image: ", error);
             }

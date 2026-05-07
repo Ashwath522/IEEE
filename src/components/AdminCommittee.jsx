@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { collection, addDoc, onSnapshot, deleteDoc, doc, query, orderBy, updateDoc } from 'firebase/firestore';
+import { ref, push, onValue, remove, set, query, orderByChild } from 'firebase/database';
 import { db } from '../firebase';
 
 const AdminCommittee = () => {
@@ -19,10 +19,20 @@ const AdminCommittee = () => {
     ];
 
     useEffect(() => {
-        const q = query(collection(db, 'committee'), orderBy('role_index', 'asc'));
-        const unsubscribe = onSnapshot(q, (snapshot) => {
-            const docs = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-            setMembers(docs);
+        const committeeRef = ref(db, 'committee');
+        const unsubscribe = onValue(committeeRef, (snapshot) => {
+            const data = snapshot.val();
+            if (data) {
+                const docs = Object.keys(data).map(key => ({ 
+                    id: key, 
+                    ...data[key] 
+                }));
+                // Sort by role_index manually if needed, or use query
+                docs.sort((a, b) => a.role_index - b.role_index);
+                setMembers(docs);
+            } else {
+                setMembers([]);
+            }
             setLoading(false);
         });
         return () => unsubscribe();
@@ -35,10 +45,10 @@ const AdminCommittee = () => {
         const roleIndex = roles.indexOf(newMember.role);
         
         try {
-            await addDoc(collection(db, 'committee'), {
+            await push(ref(db, 'committee'), {
                 ...newMember,
                 role_index: roleIndex,
-                created_at: new Date()
+                created_at: new Date().toISOString()
             });
             setNewMember({ name: '', role: 'Organising General Chairs', imageUrl: '' });
         } catch (error) {
@@ -49,7 +59,7 @@ const AdminCommittee = () => {
     const handleDeleteMember = async (id) => {
         if (window.confirm('Delete this committee member?')) {
             try {
-                await deleteDoc(doc(db, 'committee', id));
+                await remove(ref(db, `committee/${id}`));
             } catch (error) {
                 console.error("Error deleting member: ", error);
             }
@@ -118,11 +128,11 @@ const AdminCommittee = () => {
                             try {
                                 for (const member of defaultMembers) {
                                     const roleIndex = roles.indexOf(member.role);
-                                    await addDoc(collection(db, 'committee'), {
+                                    await push(ref(db, 'committee'), {
                                         ...member,
                                         imageUrl: '',
                                         role_index: roleIndex,
-                                        created_at: new Date()
+                                        created_at: new Date().toISOString()
                                     });
                                 }
                                 alert('Default committee members added successfully!');

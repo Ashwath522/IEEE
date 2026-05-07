@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { ref, push } from 'firebase/database';
 import { db } from '../firebase';
 import './RegistrationPage.css';
 
@@ -65,9 +65,9 @@ const RegistrationPage = ({ onBack }) => {
             setIsSmiling(true);
 
             try {
-                await addDoc(collection(db, 'registrations'), {
+                await push(ref(db, 'registrations'), {
                     ...formData,
-                    created_at: serverTimestamp()
+                    created_at: new Date().toISOString()
                 });
 
                 setIsComplete(true);
