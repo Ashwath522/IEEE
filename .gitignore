@@ -22,7 +22,9 @@ yarn-error.log*
 .pnpm-debug.log*
 
 # Local env files
+.env
 .env*.local
+.env.local
 
 # Editor settings
 .vscode/
