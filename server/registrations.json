@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1775670537426,
+    "name": "ks",
+    "usn": "1at23ai009",
+    "branch": "Artificial Intelligence and Machine Learning",
+    "sem": "6",
+    "phone": "7676767676",
+    "email": "bhjj@gmail.com",
+    "created_at": "2026-04-08T17:48:57.422Z"
+  },
+  {
+    "id": 1775706514140,
+    "name": "sharan",
+    "usn": "1AT23AI048",
+    "branch": "Mechanical",
+    "sem": "8",
+    "phone": "9148846024",
+    "email": "sharath112705@gmail.com",
+    "created_at": "2026-04-09T03:48:34.140Z"
+  }
+]
