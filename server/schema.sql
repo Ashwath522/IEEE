@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS registrations (
 
 -- Optional: Insert dummy data for testing
 -- INSERT INTO registrations (name, usn, branch, sem, phone, email) 
--- VALUES ('Test User', '1AT23CS000', 'Computer Science', 4, '9876543210', 'test@example.com');
+-- VALUES ('Test User', '1AT23CS000', 'Computer Science', 4, '7022339670', 'test@example.com');
 
 -- SECURITY: Create a restricted Staff user
 -- This user can see and add registrations, but CANNOT drop tables or delete everything.

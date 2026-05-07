@@ -106,42 +106,41 @@
 }
 
 .members-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: 30px;
-    justify-content: center;
 }
 
 .member-card {
     background: #fff;
     border: 1px solid #e5e7eb;
-    border-radius: 8px;
+    border-radius: 4px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
 }
 
 .member-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     border-color: #000;
 }
 
 .card-header {
-    background: #1a1a1a;
+    background: #000;
     color: #fff;
-    padding: 12px;
+    padding: 10px;
     text-align: center;
 }
 
 .card-header .member-role {
     color: #fff;
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     margin: 0;
 }
 
@@ -149,16 +148,15 @@
     padding: 20px 0;
     display: flex;
     justify-content: center;
-    background: #f9fafb;
+    background: #fff; /* Removed gray background */
 }
 
 .member-image {
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
+    width: 180px;
+    height: 180px;
+    border-radius: 4px; /* Square-ish professional look */
     overflow: hidden;
-    border: 4px solid #fff;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
 }
 
 .member-image img {
@@ -173,22 +171,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #f3f4f6;
-    color: #1a1a1a;
-    font-size: 2rem;
+    background: #fff; /* Removed gray background */
+    color: #000;
+    font-size: 2.5rem;
     font-weight: 700;
+    border: 1px solid #eee;
 }
 
 .member-info {
     padding: 15px;
     text-align: center;
-    border-top: 1px solid #f3f4f6;
+    background: #fff;
 }
 
 .member-name {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 700;
-    color: #1a1a1a;
+    color: #000;
     margin: 0;
 }
 
