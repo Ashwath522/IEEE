@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { db } from '../firebase';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import './RegistrationForm.css';
 
 const RegistrationForm = () => {
@@ -25,7 +27,7 @@ const RegistrationForm = () => {
 
     const currentStepData = steps[step];
 
-    const handleNext = () => {
+    const handleNext = async () => {
         if (formData[currentStepData.field] === '') return;
 
         // Smile and Present Next
@@ -35,8 +37,28 @@ const RegistrationForm = () => {
         if (step < steps.length - 1) {
             setStep(prev => prev + 1);
         } else {
-            setIsComplete(true);
-            setIsSmiling(true);
+            // Final Submission Logic
+            try {
+                // 1. Save to Persistent Firestore Database
+                await addDoc(collection(db, 'registrations'), {
+                    ...formData,
+                    timestamp: serverTimestamp()
+                });
+
+                // 2. Trigger Email Notification (Vercel Serverless Function)
+                // We will create an API route for this to handle the email logic securely
+                await fetch('/api/send-confirmation', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+
+                setIsComplete(true);
+                setIsSmiling(true);
+            } catch (error) {
+                console.error("Registration failed:", error);
+                alert("Something went wrong. Please try again.");
+            }
         }
     };
 
