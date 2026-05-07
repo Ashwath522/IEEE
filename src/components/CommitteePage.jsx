@@ -122,3 +122,4 @@ const CommitteePage = ({ onBack, onOpenRegistration, onOpenAdmin }) => {
 };
 
 export default CommitteePage;
+// Trigger rebuild
