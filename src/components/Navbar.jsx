@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Navbar.css';
 import logo from '../assets/atria-logo.png';
 
-const Navbar = ({ onOpenRegistration, onOpenAdmin, onOpenCommittee }) => {
+const Navbar = ({ onOpenRegistration, onOpenAdmin, onOpenCommittee, onBack }) => {
   const [logoClicks, setLogoClicks] = useState(0);
   const [showModal, setShowModal] = useState(false);
   const [password, setPassword] = useState('');
@@ -30,6 +30,17 @@ const Navbar = ({ onOpenRegistration, onOpenAdmin, onOpenCommittee }) => {
     }
   };
 
+  const handleNavClick = (section) => {
+    if (onBack) {
+      onBack();
+      // Wait for state change to Home then scroll
+      setTimeout(() => {
+        const el = document.querySelector(section);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }
+  };
+
   return (
     <nav className="navbar">
       <div className="navbar-container">
@@ -41,14 +52,11 @@ const Navbar = ({ onOpenRegistration, onOpenAdmin, onOpenCommittee }) => {
           </div>
         </div>
 
-
-
         <ul className="nav-menu">
-          <li className="nav-item"><a href="#home">Home</a></li>
-          <li className="nav-item"><a href="#about">About</a></li>
+          <li className="nav-item"><a href="#home" onClick={() => handleNavClick('#home')}>Home</a></li>
+          <li className="nav-item"><a href="#about" onClick={() => handleNavClick('#about')}>About</a></li>
           <li className="nav-item" onClick={onOpenCommittee}><a href="#committee" onClick={(e) => e.preventDefault()}>Committee</a></li>
           <li className="nav-item" onClick={onOpenRegistration}><a href="#registration" onClick={(e) => e.preventDefault()}>Registration</a></li>
-
         </ul>
       </div>
 
@@ -75,6 +83,5 @@ const Navbar = ({ onOpenRegistration, onOpenAdmin, onOpenCommittee }) => {
     </nav>
   );
 };
-
 
 export default Navbar;

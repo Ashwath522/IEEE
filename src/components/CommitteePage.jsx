@@ -57,7 +57,7 @@ const CommitteePage = ({ onBack, onOpenRegistration, onOpenAdmin }) => {
 
     return (
         <div className="committee-page">
-            <Navbar onOpenRegistration={onOpenRegistration} onOpenAdmin={onOpenAdmin} />
+            <Navbar onOpenRegistration={onOpenRegistration} onOpenAdmin={onOpenAdmin} onBack={onBack} />
             
             <div className="committee-hero">
                 <div className="container">
