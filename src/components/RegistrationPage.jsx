@@ -70,6 +70,13 @@ const RegistrationPage = ({ onBack }) => {
                     created_at: new Date().toISOString()
                 });
 
+                // Trigger Email Notification
+                await fetch('/api/send-confirmation', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+
                 setIsComplete(true);
                 setIsSwapping(false);
                 
