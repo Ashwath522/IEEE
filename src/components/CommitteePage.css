@@ -1,12 +1,8 @@
 :root {
-    --primary: #b31b1b; /* IEEE Professional Red */
-    --primary-dark: #8b1515;
-    --primary-light: #fef2f2;
-    --text-main: #1d1d1f;
-    --text-muted: #666666;
-    --bg-page: #ffffff;
-    --glass-bg: #ffffff;
-    --glass-border: #e5e7eb;
+    --primary: #2b26c3; /* Matching the example blue/purple */
+    --text-main: #111827;
+    --text-muted: #6b7280;
+    --bg-page: #f9fafb;
 }
 
 .committee-page {
@@ -14,149 +10,87 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 .committee-hero {
-    position: relative;
-    padding: 120px 0 60px;
+    padding: 100px 0 40px;
     text-align: center;
-    background: #fff;
-    border-bottom: 1px solid #eee;
 }
 
 .hero-badge {
-    display: inline-block;
-    padding: 6px 16px;
-    background: var(--primary-light);
     color: var(--primary);
-    border-radius: 4px;
-    font-size: 0.85rem;
     font-weight: 700;
-    margin-bottom: 16px;
-    letter-spacing: 1px;
-    border: 1px solid rgba(179, 27, 27, 0.1);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    display: block;
 }
 
 .committee-hero h1 {
-    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-size: 2.5rem;
     font-weight: 800;
-    color: var(--text-main);
-    margin-bottom: 12px;
-}
-
-.committee-hero p {
-    font-size: 1.15rem;
-    color: var(--text-muted);
-    max-width: 700px;
-    margin: 0 auto 30px;
-}
-
-.hero-actions {
-    display: flex;
-    justify-content: center;
-}
-
-.btn-primary-outline {
-    background: #fff;
-    border: 2px solid var(--primary);
-    color: var(--primary);
-    padding: 10px 24px;
-    border-radius: 4px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.btn-primary-outline:hover {
-    background: var(--primary);
-    color: #fff;
+    color: #111827;
 }
 
 .committee-content {
     flex: 1;
-    padding: 60px 0;
+    padding: 40px 0 100px;
 }
 
 .committee-hierarchy {
     display: flex;
     flex-direction: column;
-    gap: 60px;
-}
-
-.committee-group {
-    scroll-margin-top: 100px;
+    gap: 80px;
 }
 
 .group-header {
-    margin-bottom: 30px;
-    text-align: left;
-    border-left: 5px solid var(--primary);
-    padding-left: 20px;
+    text-align: center;
+    margin-bottom: 40px;
 }
 
 .group-header h3 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: 700;
-    color: var(--text-main);
+    color: #4b2ea3; /* Purple title from example */
     margin: 0;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
 }
 
 .members-grid {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .member-card {
     background: #fff;
-    border: 1px solid #e5e7eb;
-    border-radius: 4px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    transition: all 0.3s ease;
-    width: 100%;
-    max-width: 400px;
+    border-radius: 24px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
 }
 
 .member-card:hover {
-    border-color: #000;
-}
-
-.card-header {
-    background: #000;
-    color: #fff;
-    padding: 10px;
-    text-align: center;
-}
-
-.card-header .member-role {
-    color: #fff;
-    font-size: 0.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    margin: 0;
+    transform: translateY(-5px);
 }
 
 .member-image-wrapper {
-    padding: 20px 0;
+    margin-bottom: 25px;
     display: flex;
     justify-content: center;
-    background: #fff; /* Removed gray background */
 }
 
 .member-image {
-    width: 180px;
-    height: 180px;
-    border-radius: 4px; /* Square-ish professional look */
+    width: 240px;
+    height: 240px;
+    border-radius: 20px; /* Rounded corners like example */
     overflow: hidden;
-    border: 1px solid #eee;
+    background: #eee;
 }
 
 .member-image img {
@@ -171,36 +105,41 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #fff; /* Removed gray background */
-    color: #000;
-    font-size: 2.5rem;
-    font-weight: 700;
-    border: 1px solid #eee;
+    background: #f3f4f6;
+    color: var(--primary);
+    font-size: 3rem;
+    font-weight: 800;
 }
 
 .member-info {
-    padding: 15px;
-    text-align: center;
-    background: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 .member-name {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: #000;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #1c1694; /* Deep blue name from example */
     margin: 0;
 }
 
-/* Responsive adjustments */
+.member-role {
+    font-size: 1rem;
+    color: #6b7280;
+    font-weight: 500;
+}
+
+.footer {
+    padding: 60px 0;
+    background: #fff;
+    text-align: center;
+    border-top: 1px solid #eee;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-    .member-card {
-        max-width: 90%;
-    }
-    .group-header {
-        text-align: center;
-        border-left: none;
-        border-bottom: 3px solid var(--primary);
-        padding-left: 0;
-        padding-bottom: 10px;
+    .members-grid {
+        grid-template-columns: 1fr;
     }
 }

@@ -84,9 +84,6 @@ const CommitteePage = ({ onBack, onOpenRegistration, onOpenAdmin }) => {
                             <div className="members-grid">
                                 {committeeData[role].map((member, memIdx) => (
                                     <div key={memIdx} className="member-card">
-                                        <div className="card-header">
-                                            <p className="member-role">{role}</p>
-                                        </div>
                                         <div className="member-image-wrapper">
                                             <div className="member-image">
                                                 <img 
@@ -104,6 +101,7 @@ const CommitteePage = ({ onBack, onOpenRegistration, onOpenAdmin }) => {
                                         </div>
                                         <div className="member-info">
                                             <p className="member-name">{member.name}</p>
+                                            <p className="member-role">{role}</p>
                                         </div>
                                     </div>
                                 ))}
