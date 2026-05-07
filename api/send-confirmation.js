@@ -21,7 +21,7 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         from: 'IC2ST-27 Conference <onboarding@resend.dev>',
-        to: [email, 'ashwath.m.2023.ece@atria.edu'],
+        to: [email, 'ashwathsam521@gmail.com'],
         subject: 'Registration Confirmed: IC2ST-27 Conference',
         html: `
           <div style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #1f2937; max-width: 600px; margin: 0 auto; border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
