@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import IntroAnimation from './components/IntroAnimation';
+import React, { useState } from 'react';
 import HomePage from './components/HomePage';
 import AdminPage from './components/AdminPage';
 import RegistrationPage from './components/RegistrationPage';
@@ -8,18 +7,9 @@ import './index.css';
 
 
 function App() {
-  const [showIntro, setShowIntro] = useState(true);
   const [isAdminOpen, setIsAdminOpen] = useState(false);
   const [isRegistrationOpen, setIsRegistrationOpen] = useState(false);
   const [isCommitteeOpen, setIsCommitteeOpen] = useState(false);
-
-  const handleIntroComplete = () => {
-    setShowIntro(false);
-  };
-
-  if (showIntro) {
-    return <IntroAnimation onComplete={handleIntroComplete} />;
-  }
 
   if (isAdminOpen) {
     return <AdminPage onBack={() => setIsAdminOpen(false)} />;
