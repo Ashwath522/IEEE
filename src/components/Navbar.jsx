@@ -55,6 +55,8 @@ const Navbar = ({ onOpenRegistration, onOpenAdmin, onOpenCommittee, onBack }) =>
         <ul className="nav-menu">
           <li className="nav-item"><a href="#home" onClick={() => handleNavClick('#home')}>Home</a></li>
           <li className="nav-item"><a href="#about" onClick={() => handleNavClick('#about')}>About</a></li>
+          <li className="nav-item"><a href="#guidelines" onClick={() => handleNavClick('#guidelines')}>Guidelines</a></li>
+          <li className="nav-item"><a href="#policy" onClick={() => handleNavClick('#policy')}>Policy</a></li>
           <li className="nav-item" onClick={onOpenCommittee}><a href="#committee" onClick={(e) => e.preventDefault()}>Committee</a></li>
           <li className="nav-item" onClick={onOpenRegistration}><a href="#registration" onClick={(e) => e.preventDefault()}>Registration</a></li>
         </ul>

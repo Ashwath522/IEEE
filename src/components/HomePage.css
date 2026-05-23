@@ -391,3 +391,338 @@
 .group-6, .group-7 { background: #fce7f3; } /* Finance Chairs - Light Pink */
 .group-6 .group-header, .group-7 .group-header { background: #f9a8d4; }
 
+
+/* Guidelines Section Styles */
+.guidelines {
+    background: #fafafa;
+}
+
+.guidelines h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.8rem;
+    color: var(--primary);
+    font-weight: 800;
+}
+
+.guidelines-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+    .guidelines-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.guideline-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 45px rgba(0, 0, 0, 0.05);
+    border-top: 6px solid var(--primary);
+    position: relative;
+    overflow: hidden;
+}
+
+.card-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.phase-1 {
+    background: #ffebeb;
+    color: var(--primary);
+}
+
+.phase-2 {
+    background: #e6f0ff;
+    color: var(--secondary);
+}
+
+.guideline-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    color: #222;
+    font-weight: 700;
+}
+
+.guidelines-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.guidelines-list li {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.guidelines-list li strong {
+    font-size: 1.15rem;
+    color: #111;
+    font-weight: 700;
+}
+
+.guidelines-list li p {
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.template-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.template-btn {
+    flex: 1;
+    text-align: center;
+    background: #f0f0f0;
+    color: #333;
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 1px solid #ddd;
+}
+
+.template-btn:hover {
+    background: var(--primary);
+    color: #ffffff;
+    border-color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(196, 30, 58, 0.2);
+}
+
+.view-instructions-link {
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-top: 4px;
+    transition: opacity 0.3s ease;
+    align-self: flex-start;
+}
+
+.view-instructions-link:hover {
+    text-decoration: underline;
+    opacity: 0.9;
+}
+
+.cmt-btn {
+    align-self: flex-start;
+    display: inline-block;
+    background: #007bff;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+.cmt-btn:hover {
+    background: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.25);
+}
+
+.revision-highlight span {
+    background: #fff3cd;
+    color: #856404;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.warning-box {
+    background: #fff3cd;
+    border-left: 6px solid #ffc107;
+    padding: 20px 30px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    max-width: 800px;
+    margin: 40px auto 0 auto;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+}
+
+.warning-icon {
+    font-size: 1.8rem;
+    color: #856404;
+}
+
+.warning-box p {
+    color: #856404;
+    font-weight: 600;
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* Policy Section Styles */
+.policy {
+    background: #ffffff;
+}
+
+.policy h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.8rem;
+    color: var(--primary);
+    font-weight: 800;
+}
+
+.policy-container {
+    max-width: 950px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.policy-block {
+    display: flex;
+    gap: 20px;
+    background: #fdfdfd;
+    padding: 25px 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    border-left: 4px solid var(--primary);
+    transition: transform 0.3s ease;
+}
+
+.policy-block:hover {
+    transform: translateX(5px);
+}
+
+.policy-icon {
+    font-size: 1.25rem;
+    color: var(--primary);
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.policy-text {
+    font-size: 1.1rem;
+    color: #333;
+    line-height: 1.7;
+}
+
+.policy-sublist {
+    margin-top: 15px;
+    padding-left: 20px;
+    list-style-type: disc;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.policy-sublist li {
+    font-size: 1.05rem;
+    color: #444;
+}
+
+/* Program Section Styles */
+.program {
+    background: #fafafa;
+}
+
+.program h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.8rem;
+    color: var(--primary);
+    font-weight: 800;
+}
+
+.program-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.program-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 40px 30px;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.05);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-top: 5px solid var(--primary);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.program-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 45px rgba(0,0,0,0.1);
+}
+
+.program-card-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.program-card h3 {
+    font-size: 1.45rem;
+    color: #222;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.program-card.coming-soon p {
+    font-size: 1.1rem;
+    color: #777;
+    font-style: italic;
+    font-weight: 600;
+    margin: 0;
+}
+
+.resources-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 5px;
+}
+
+.resource-link-btn {
+    background: none;
+    border: none;
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 1.05rem;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    padding: 0;
+}
+
+.resource-link-btn:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+
+.resource-inactive {
+    font-size: 1rem;
+    color: #777;
+    font-style: italic;
+}
+
