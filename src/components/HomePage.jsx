@@ -30,7 +30,7 @@ const Counter = ({ target, duration = 2000 }) => {
     return <span>{count}+</span>;
 };
 
-const HomePage = ({ onOpenRegistration, onOpenAdmin, onOpenCommittee }) => {
+const HomePage = ({ navigate }) => {
     const tracks = [
         { 
             title: "Intelligence Computing & AI", 
@@ -54,7 +54,7 @@ const HomePage = ({ onOpenRegistration, onOpenAdmin, onOpenCommittee }) => {
         }
     ];
 
-    const [committeeLoading, setCommitteeLoading] = useState(true);
+
 
     const importantDates = [
         { event: "Start of Paper Submissions", date: "February 1st, 2027" },
@@ -67,7 +67,7 @@ const HomePage = ({ onOpenRegistration, onOpenAdmin, onOpenCommittee }) => {
     return (
         <div className="home-page">
             {/* Navbar */}
-            <Navbar onOpenRegistration={onOpenRegistration} onOpenAdmin={onOpenAdmin} onOpenCommittee={onOpenCommittee} />
+            <Navbar currentPage="home" navigate={navigate} />
 
 
             {/* Hero Section */}
@@ -79,7 +79,7 @@ const HomePage = ({ onOpenRegistration, onOpenAdmin, onOpenCommittee }) => {
                         <div className="stat-item"><Counter target={250} /><p>Expected Attendance</p></div>
                         <div className="stat-item"><Counter target={10} /><p>Exhibits</p></div>
                     </div>
-                    <button className="btn btn-primary" onClick={onOpenRegistration}>Register Now</button>
+                    <button className="btn btn-primary" onClick={() => navigate('registration')}>Register Now</button>
 
                 </div>
             </section>
@@ -254,7 +254,7 @@ const HomePage = ({ onOpenRegistration, onOpenAdmin, onOpenCommittee }) => {
                             <h3>Resources & Committee</h3>
                             <ul className="resources-list">
                                 <li>
-                                    <button onClick={onOpenCommittee} className="resource-link-btn">
+                                    <button onClick={() => navigate('committee')} className="resource-link-btn">
                                         View Conference Committee →
                                     </button>
                                 </li>

@@ -1,132 +1,148 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Navbar.css';
-import logo from '../assets/atria-logo.png';
+import bannerImg from '../assets/ic2st-banner.png';
 
-const Navbar = ({ onOpenRegistration, onOpenAdmin, onOpenCommittee, onBack }) => {
-  const [logoClicks, setLogoClicks] = useState(0);
-  const [showModal, setShowModal] = useState(false);
-  const [password, setPassword] = useState('');
+/**
+ * Navbar – exact two-tier layout matching ieee-discover.org
+ *   Tier 1: white banner area with conference banner image (clickable → Home)
+ *   Tier 2: dark nav bar with flat horizontal links
+ *
+ * Props:
+ *   currentPage  – 'home' | 'committee' | 'registration' | 'admin'
+ *   navigate(page, scrollTo?) – central router function
+ */
+const Navbar = ({ currentPage, navigate }) => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showAdminModal, setShowAdminModal] = useState(false);
+  const [password, setPassword] = useState('');
+  const [logoClicks, setLogoClicks] = useState(0);
   const menuRef = useRef(null);
 
-  const handleLogoClick = () => {
-    const nextCount = logoClicks + 1;
-    if (nextCount === 3) {
-      setLogoClicks(0);
-      setShowModal(true);
-    } else {
-      setLogoClicks(nextCount);
-      if (window.logoClickTimeout) clearTimeout(window.logoClickTimeout);
-      window.logoClickTimeout = setTimeout(() => setLogoClicks(0), 2000);
-    }
-  };
-
-  const handleAuth = (e) => {
-    e.preventDefault();
-    if (password === "Virat18") {
-      setShowModal(false);
-      setPassword('');
-      onOpenAdmin();
-    } else {
-      alert("Incorrect Password");
-    }
-  };
-
-  const handleNavClick = (section) => {
-    setMenuOpen(false);
-    if (onBack) {
-      onBack();
-      setTimeout(() => {
-        const el = document.querySelector(section);
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
-    } else {
-      const el = document.querySelector(section);
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  // Close menu on outside click
+  // Close dropdown on outside click
   useEffect(() => {
-    const handleOutside = (e) => {
+    const handler = (e) => {
       if (menuRef.current && !menuRef.current.contains(e.target)) {
         setMenuOpen(false);
       }
     };
-    document.addEventListener('mousedown', handleOutside);
-    return () => document.removeEventListener('mousedown', handleOutside);
+    document.addEventListener('mousedown', handler);
+    return () => document.removeEventListener('mousedown', handler);
   }, []);
 
+  // Triple-click banner → admin modal
+  const handleBannerClick = () => {
+    const next = logoClicks + 1;
+    if (next === 3) {
+      setLogoClicks(0);
+      setShowAdminModal(true);
+    } else {
+      setLogoClicks(next);
+      if (window._adminClickTimer) clearTimeout(window._adminClickTimer);
+      window._adminClickTimer = setTimeout(() => setLogoClicks(0), 2000);
+    }
+  };
+
+  const handleAdminAuth = (e) => {
+    e.preventDefault();
+    if (password === 'Virat18') {
+      setShowAdminModal(false);
+      setPassword('');
+      navigate('admin');
+    } else {
+      alert('Incorrect Password');
+    }
+  };
+
+  // Navigate to a section: if already on home, just scroll; else go home + scroll
+  const goToSection = (sectionId) => {
+    setMenuOpen(false);
+    if (currentPage === 'home') {
+      const el = document.querySelector(sectionId);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      navigate('home', sectionId);
+    }
+  };
+
+  const goToPage = (page) => {
+    setMenuOpen(false);
+    navigate(page);
+  };
+
+  // Nav items – matching the structure of ieee-discover.org exactly
+  const navItems = [
+    { label: 'Home',         action: () => goToPage('home'),            page: 'home'        },
+    { label: 'About',        action: () => goToSection('#about'),        section: '#about'   },
+    { label: 'CFP',          action: () => goToSection('#guidelines'),   section: '#guidelines' },
+    { label: 'Committee',    action: () => goToPage('committee'),        page: 'committee'   },
+    { label: 'Dates',        action: () => goToSection('#dates'),        section: '#dates'   },
+    { label: 'Speakers',     action: () => goToSection('#program'),      section: '#program' },
+    { label: 'Sponsors',     action: () => goToSection('#sponsors'),     section: '#sponsors'},
+    { label: 'Registration', action: () => goToPage('registration'),     page: 'registration'},
+  ];
+
+  const isActive = (item) => {
+    if (item.page) return currentPage === item.page;
+    return false;
+  };
+
   return (
-    <header className="site-header">
-      {/* ── TOP BANNER BAR ── */}
-      <div className="header-banner" onClick={handleLogoClick} style={{ cursor: 'pointer' }}>
-        <div className="header-banner-inner">
-          <img src={logo} alt="Atria Institute of Technology Logo" className="banner-logo" />
-          <div className="banner-text">
-            <span className="banner-conf-name">IC2ST-27</span>
-            <span className="banner-conf-full">
-              International Conference on Intelligence Computing,<br />
-              Communication and Sustainable Technologies
-            </span>
-            <span className="banner-venue">Atria Institute of Technology, Bangalore &nbsp;·&nbsp; July 30–31, 2027</span>
-          </div>
-          <div className="banner-ieee-badge">
-            <span className="ieee-badge-text">IEEE</span>
-            <span className="ieee-badge-sub">Conference</span>
-          </div>
+    <>
+      <header className="site-header" ref={menuRef}>
+
+        {/* ──────────── TIER 1: White banner with conference image ──────────── */}
+        <div
+          className="header-banner"
+          onClick={handleBannerClick}
+          title="Click 3× for admin"
+        >
+          <img
+            src={bannerImg}
+            alt="IC2ST-27 – International Conference on Intelligence Computing, Communication and Sustainable Technologies"
+            className="header-banner-img"
+          />
         </div>
-      </div>
 
-      {/* ── NAVIGATION BAR ── */}
-      <nav className="navbar" ref={menuRef}>
-        <div className="navbar-container">
-          {/* Hamburger for mobile */}
-          <button
-            className={`hamburger ${menuOpen ? 'open' : ''}`}
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Toggle menu"
-          >
-            <span /><span /><span />
-          </button>
+        {/* ──────────── TIER 2: Dark nav bar ──────────── */}
+        <nav className="header-navbar">
+          <div className="header-navbar-inner">
 
-          <ul className={`nav-menu ${menuOpen ? 'nav-open' : ''}`}>
-            <li className="nav-item">
-              <a href="#home" onClick={() => handleNavClick('#home')}>Home</a>
-            </li>
-            <li className="nav-item">
-              <a href="#about" onClick={() => handleNavClick('#about')}>About</a>
-            </li>
-            <li className="nav-item">
-              <a href="#dates" onClick={() => handleNavClick('#dates')}>Dates</a>
-            </li>
-            <li className="nav-item">
-              <a href="#guidelines" onClick={() => handleNavClick('#guidelines')}>Guidelines</a>
-            </li>
-            <li className="nav-item">
-              <a href="#policy" onClick={() => handleNavClick('#policy')}>Policy</a>
-            </li>
-            <li className="nav-item" onClick={() => { setMenuOpen(false); onOpenCommittee(); }}>
-              <a href="#committee" onClick={(e) => e.preventDefault()}>Committee</a>
-            </li>
-            <li className="nav-item">
-              <a href="#sponsors" onClick={() => handleNavClick('#sponsors')}>Sponsors</a>
-            </li>
-            <li className="nav-item" onClick={() => { setMenuOpen(false); onOpenRegistration(); }}>
-              <a href="#registration" onClick={(e) => e.preventDefault()} className="nav-register-btn">
-                Register
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+            {/* Hamburger for mobile */}
+            <button
+              className={`hamburger${menuOpen ? ' open' : ''}`}
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-label="Toggle navigation"
+            >
+              <span /><span /><span />
+            </button>
 
-      {/* ── ADMIN MODAL ── */}
-      {showModal && (
-        <div className="admin-modal-overlay">
-          <div className="admin-modal">
+            {/* Main nav links */}
+            <ul className={`header-nav-list${menuOpen ? ' open' : ''}`}>
+              {navItems.map((item) => (
+                <li
+                  key={item.label}
+                  className={`header-nav-item${isActive(item) ? ' active' : ''}`}
+                >
+                  <button
+                    className="header-nav-link"
+                    onClick={item.action}
+                  >
+                    {item.label}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </nav>
+
+      </header>
+
+      {/* ──────────── Admin Modal ──────────── */}
+      {showAdminModal && (
+        <div className="admin-modal-overlay" onClick={() => setShowAdminModal(false)}>
+          <div className="admin-modal" onClick={(e) => e.stopPropagation()}>
             <h3>Admin Access</h3>
-            <form onSubmit={handleAuth}>
+            <form onSubmit={handleAdminAuth}>
               <input
                 type="password"
                 placeholder="Enter Password"
@@ -134,15 +150,21 @@ const Navbar = ({ onOpenRegistration, onOpenAdmin, onOpenCommittee, onBack }) =>
                 onChange={(e) => setPassword(e.target.value)}
                 autoFocus
               />
-              <div className="modal-actions">
+              <div className="admin-modal-actions">
                 <button type="submit" className="btn btn-primary">Unlock</button>
-                <button type="button" className="btn btn-secondary" onClick={() => setShowModal(false)}>Cancel</button>
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  onClick={() => setShowAdminModal(false)}
+                >
+                  Cancel
+                </button>
               </div>
             </form>
           </div>
         </div>
       )}
-    </header>
+    </>
   );
 };
 

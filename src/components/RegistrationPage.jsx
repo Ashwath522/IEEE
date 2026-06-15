@@ -3,7 +3,7 @@ import { ref, push } from 'firebase/database';
 import { db } from '../firebase';
 import './RegistrationPage.css';
 
-const RegistrationPage = ({ onBack }) => {
+const RegistrationPage = ({ navigate }) => {
     const [step, setStep] = useState(0);
     const [isSwapping, setIsSwapping] = useState(false);
     const [isSmiling, setIsSmiling] = useState(false);
@@ -85,7 +85,7 @@ const RegistrationPage = ({ onBack }) => {
                 
                 // Final redirection after animation
                 window.regSuccessTimeout = setTimeout(() => {
-                    onBack();
+                    navigate('home');
                 }, 3500);
 
             } catch (err) {
@@ -128,7 +128,7 @@ const RegistrationPage = ({ onBack }) => {
 
             <nav className="reg-nav">
                 <h2 style={{color: 'white', fontWeight: '900', position: 'relative', zIndex: 10, letterSpacing: '3px'}}>IC2ST-27 REGISTRATION</h2>
-                <div className="back-btn" style={{position: 'relative', zIndex: 10}} onClick={onBack}>← Return Home</div>
+                <div className="back-btn" style={{position: 'relative', zIndex: 10}} onClick={() => navigate('home')}>← Return Home</div>
             </nav>
 
             <div className="reg-content-wrapper">
