@@ -1,7 +1,7 @@
 .home-page {
   background-color: #fff;
   color: #000;
-  padding-top: 80px; /* Offset for fixed header */
+  padding-top: 143px; /* Offset for two-tier fixed header: banner (~95px) + navbar (48px) */
 }
 
 .section {
