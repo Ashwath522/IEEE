@@ -1,52 +1,37 @@
-import React, { useState, useEffect, useRef } from 'react';
-import HomePage from './components/HomePage';
-import AdminPage from './components/AdminPage';
-import RegistrationPage from './components/RegistrationPage';
+import React, { useState } from 'react';
+import HomePage      from './components/HomePage';
+import AboutPage     from './components/AboutPage';
+import DatesPage     from './components/DatesPage';
+import CFPPage       from './components/CFPPage';
 import CommitteePage from './components/CommitteePage';
+import SpeakersPage  from './components/SpeakersPage';
+import SponsorsPage  from './components/SponsorsPage';
+import RegistrationPage from './components/RegistrationPage';
+import AdminPage     from './components/AdminPage';
 import './index.css';
 
-// pages: 'home' | 'committee' | 'registration' | 'admin'
+// pages: home | about | cfp | committee | dates | speakers | sponsors | registration | admin
 function App() {
   const [page, setPage] = useState('home');
-  const [scrollTarget, setScrollTarget] = useState(null);
-  const prevPage = useRef('home');
 
-  // When navigating to home with a scroll target, wait for render then scroll
-  useEffect(() => {
-    if (page === 'home' && scrollTarget) {
-      const attempt = () => {
-        const el = document.querySelector(scrollTarget);
-        if (el) {
-          el.scrollIntoView({ behavior: 'smooth' });
-          setScrollTarget(null);
-        }
-      };
-      const t = setTimeout(attempt, 120);
-      return () => clearTimeout(t);
-    }
-  }, [page, scrollTarget]);
-
-  const navigate = (targetPage, scrollTo = null) => {
-    prevPage.current = page;
-    if (scrollTo && targetPage === 'home') {
-      setScrollTarget(scrollTo);
-    }
+  const navigate = (targetPage) => {
     setPage(targetPage);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  if (page === 'admin') {
-    return <AdminPage onBack={() => navigate('home')} />;
-  }
+  const props = { navigate, currentPage: page };
 
-  if (page === 'registration') {
-    return <RegistrationPage navigate={navigate} />;
+  switch (page) {
+    case 'about':        return <AboutPage        {...props} />;
+    case 'cfp':          return <CFPPage          {...props} />;
+    case 'committee':    return <CommitteePage    {...props} />;
+    case 'dates':        return <DatesPage        {...props} />;
+    case 'speakers':     return <SpeakersPage     {...props} />;
+    case 'sponsors':     return <SponsorsPage     {...props} />;
+    case 'registration': return <RegistrationPage {...props} />;
+    case 'admin':        return <AdminPage onBack={() => navigate('home')} />;
+    default:             return <HomePage         {...props} />;
   }
-
-  if (page === 'committee') {
-    return <CommitteePage navigate={navigate} />;
-  }
-
-  return <HomePage navigate={navigate} />;
 }
 
 export default App;

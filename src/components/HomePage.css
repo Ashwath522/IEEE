@@ -1,7 +1,10 @@
 .home-page {
   background-color: #fff;
   color: #000;
-  padding-top: 143px; /* Offset for two-tier fixed header: banner (~95px) + navbar (48px) */
+  padding-top: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .section {

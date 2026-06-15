@@ -1,0 +1,510 @@
+/* ═══════════════════════════════════════════════════════
+   SHARED PAGE LAYOUT  —  used by About, Dates, CFP,
+   Speakers, Sponsors pages
+   ═══════════════════════════════════════════════════════ */
+
+.page-layout {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    font-family: 'Inter', sans-serif;
+}
+
+/* ── Page top offset for fixed two-tier header ── */
+.page-main {
+    flex: 1;
+    padding-top: 143px; /* banner (~95px) + navbar (48px) */
+}
+
+/* ── Page hero banner ── */
+.page-hero {
+    background: #f9f9f9;
+    border-bottom: 1px solid #eee;
+    padding: 50px 0 40px;
+    text-align: center;
+}
+
+.page-badge {
+    display: inline-block;
+    background: #fdf2f2;
+    color: var(--primary);
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 4px 14px;
+    border-radius: 20px;
+    border: 1px solid #f0d0d0;
+    margin-bottom: 14px;
+}
+
+.page-hero h1 {
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: #111;
+    margin: 0 0 10px;
+    line-height: 1.2;
+}
+
+.page-hero p {
+    font-size: 1.05rem;
+    color: #666;
+    margin: 0;
+}
+
+/* ── Page body ── */
+.page-body {
+    padding: 60px 20px 80px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* ── Section headings inside pages ── */
+.cfp-section,
+.about-block {
+    margin-bottom: 60px;
+}
+
+.cfp-section h2,
+.about-block h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 30px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #f0e8e8;
+}
+
+/* ═══════════════════════════════════════════════════════
+   ABOUT PAGE
+   ═══════════════════════════════════════════════════════ */
+
+.about-block p {
+    font-size: 1.05rem;
+    color: #444;
+    line-height: 1.8;
+    margin-bottom: 18px;
+}
+
+.tracks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 10px;
+}
+
+.track-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 28px;
+    border-top: 5px solid var(--primary);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.06);
+    transition: transform 0.3s ease;
+}
+
+.track-card:hover { transform: translateY(-6px); }
+
+.track-card h3 {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #111;
+    margin-bottom: 10px;
+}
+
+.track-card p {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 14px;
+    line-height: 1.6;
+}
+
+.track-keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.track-keywords span {
+    background: #fdf2f2;
+    color: var(--primary);
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 12px;
+    border: 1px solid #f0d0d0;
+}
+
+.venue-box {
+    display: grid;
+    grid-template-columns: 1fr 1.8fr;
+    gap: 30px;
+    align-items: start;
+}
+
+.venue-info h3 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.venue-info p {
+    color: #555;
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+}
+
+.map-container {
+    position: relative;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.map-container:hover { transform: translateY(-4px); }
+
+.map-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(196,30,58,0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+.map-container:hover .map-overlay { opacity: 1; }
+
+/* ═══════════════════════════════════════════════════════
+   DATES PAGE  —  timeline
+   ═══════════════════════════════════════════════════════ */
+
+.dates-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    max-width: 680px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.dates-timeline::before {
+    content: '';
+    position: absolute;
+    left: 36px;
+    top: 40px;
+    bottom: 40px;
+    width: 2px;
+    background: #f0d0d0;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 10px 0;
+    position: relative;
+}
+
+.timeline-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #fff;
+    border: 3px solid var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    flex-shrink: 0;
+    z-index: 1;
+    box-shadow: 0 4px 16px rgba(196,30,58,0.15);
+}
+
+.timeline-connector { display: none; }
+
+.timeline-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 22px 28px;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.06);
+    border-left: 5px solid var(--primary);
+    flex: 1;
+    transition: transform 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.timeline-card:hover { transform: translateX(6px); }
+
+.timeline-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 6px;
+}
+
+.timeline-date {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin: 0;
+}
+
+/* ═══════════════════════════════════════════════════════
+   CFP PAGE  —  reuse HomePage styles + extras
+   ═══════════════════════════════════════════════════════ */
+
+.guidelines-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.guideline-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 36px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.05);
+    border-top: 5px solid var(--primary);
+    position: relative;
+}
+
+.card-badge {
+    position: absolute;
+    top: 18px; right: 18px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.phase-1 { background: #ffebeb; color: var(--primary); }
+.phase-2 { background: #e6f0ff; color: #007bff; }
+
+.guideline-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 24px;
+}
+
+.guidelines-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    list-style: none;
+    padding: 0; margin: 0;
+}
+
+.guidelines-list li { display: flex; flex-direction: column; gap: 7px; }
+.guidelines-list li strong { font-size: 1.05rem; color: #111; }
+.guidelines-list li p { font-size: 0.95rem; color: #555; line-height: 1.6; margin: 0; }
+
+.template-links { display: flex; gap: 12px; margin-top: 8px; }
+
+.template-btn {
+    flex: 1;
+    text-align: center;
+    background: #f5f5f5;
+    color: #333;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    border: 1px solid #ddd;
+    text-decoration: none;
+    transition: all 0.25s;
+}
+
+.template-btn:hover {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}
+
+.view-instructions-link {
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    margin-top: 4px;
+}
+
+.view-instructions-link:hover { text-decoration: underline; }
+
+.cmt-btn {
+    display: inline-block;
+    background: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    margin-top: 8px;
+    transition: all 0.25s;
+}
+
+.cmt-btn:hover { background: #0056b3; transform: translateY(-2px); }
+
+.revision-highlight span {
+    background: #fff3cd;
+    color: #856404;
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-weight: 700;
+}
+
+.warning-box {
+    background: #fffbeb;
+    border-left: 5px solid #f59e0b;
+    padding: 18px 24px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    max-width: 780px;
+}
+
+.warning-icon { font-size: 1.6rem; color: #b45309; }
+.warning-box p { color: #92400e; font-weight: 600; margin: 0; font-size: 0.95rem; }
+
+.policy-container {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.policy-block {
+    display: flex;
+    gap: 18px;
+    background: #fdfdfd;
+    padding: 22px 26px;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    border-left: 4px solid var(--primary);
+    transition: transform 0.25s;
+}
+
+.policy-block:hover { transform: translateX(5px); }
+.policy-icon { font-size: 1.1rem; color: var(--primary); font-weight: 700; flex-shrink: 0; }
+.policy-text { font-size: 1rem; color: #333; line-height: 1.7; }
+
+.policy-sublist {
+    margin-top: 12px;
+    padding-left: 18px;
+    list-style: disc;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.policy-sublist li { font-size: 0.95rem; color: #444; }
+
+/* ═══════════════════════════════════════════════════════
+   SPEAKERS PAGE  —  coming soon cards
+   ═══════════════════════════════════════════════════════ */
+
+.coming-soon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 28px;
+}
+
+.coming-soon-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 44px 30px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+    border-top: 5px solid var(--primary);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.coming-soon-card:hover { transform: translateY(-8px); }
+
+.cs-icon { font-size: 3rem; margin-bottom: 18px; }
+
+.coming-soon-card h3 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #111;
+    margin-bottom: 12px;
+}
+
+.coming-soon-card p {
+    font-size: 0.95rem;
+    color: #777;
+    font-style: italic;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ═══════════════════════════════════════════════════════
+   SPONSORS PAGE
+   ═══════════════════════════════════════════════════════ */
+
+.sponsors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+    margin-bottom: 30px;
+}
+
+.sponsor-box {
+    height: 130px;
+    border: 2px dashed #ddd;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #aaa;
+    background: #fafafa;
+    transition: border-color 0.25s, color 0.25s;
+}
+
+.sponsor-box:hover { border-color: var(--primary); color: var(--primary); }
+
+.sponsor-note {
+    text-align: center;
+    color: #777;
+    font-style: italic;
+    font-size: 0.95rem;
+    max-width: 640px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* ═══════════════════════════════════════════════════════
+   FOOTER (shared)
+   ═══════════════════════════════════════════════════════ */
+
+.footer {
+    background: #222;
+    color: #fff;
+    text-align: center;
+    padding: 36px 0;
+    font-size: 0.9rem;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .page-hero h1 { font-size: 1.8rem; }
+    .venue-box { grid-template-columns: 1fr; }
+    .guidelines-grid { grid-template-columns: 1fr; }
+    .dates-timeline::before { left: 27px; }
+    .timeline-icon { width: 44px; height: 44px; font-size: 1.1rem; }
+}
