@@ -37,42 +37,6 @@ const AboutPage = ({ navigate, currentPage }) => (
                 </div>
 
                 <div className="about-block">
-                    <h2>Conference Tracks</h2>
-                    <div className="tracks-grid">
-                        {[
-                            {
-                                title: "Intelligence Computing & AI",
-                                desc: "AI, Machine Learning, Deep Learning, NLP, Computer Vision, and Robotics.",
-                                keywords: ["Artificial Intelligence", "Neural Networks", "Evolutionary Algorithms", "Intelligent Control"]
-                            },
-                            {
-                                title: "Communication Technologies",
-                                desc: "5G/6G Networks, IoT, Wireless Sensor Networks, and Optical Communication.",
-                                keywords: ["Mobile Networks", "SDN", "Cryptography", "Industrial IoT"]
-                            },
-                            {
-                                title: "Computing Technologies",
-                                desc: "Cloud, Edge, Fog Computing, Big Data Analytics, and Blockchain.",
-                                keywords: ["High Performance Computing", "VLSI Design", "Cyber-Physical Systems", "Grid Computing"]
-                            },
-                            {
-                                title: "Sustainable Technologies",
-                                desc: "Green Computing, Smart Grids, Renewable Energy, and Smart Cities.",
-                                keywords: ["Energy-Efficient Systems", "Electric Vehicles", "Sustainability Analytics", "Green IT"]
-                            }
-                        ].map((track, i) => (
-                            <div className="track-card" key={i}>
-                                <h3>{track.title}</h3>
-                                <p>{track.desc}</p>
-                                <div className="track-keywords">
-                                    {track.keywords.map((kw, j) => <span key={j}>{kw}</span>)}
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                <div className="about-block">
                     <h2>Venue</h2>
                     <div className="venue-box">
                         <div className="venue-info">

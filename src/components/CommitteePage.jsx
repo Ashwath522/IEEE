@@ -25,7 +25,7 @@ const CommitteePage = ({ navigate }) => {
             roles: ["IEEE SPS"],
             extra: "ECE, BMS Institute of Technology & Management, Bangalore - India",
             location: "Bengaluru, Karnataka, India",
-            linkedin: "https://www.linkedin.com/in/saneesh-cleatus/",
+            linkedin: "https://in.linkedin.com/in/saneesh-cleatus/",
             initials: "SC"
         }
     ];

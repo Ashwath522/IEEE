@@ -39,11 +39,13 @@ const Navbar = ({ currentPage, navigate }) => {
     { label: 'Home',         page: 'home'         },
     { label: 'About',        page: 'about'        },
     { label: 'CFP',          page: 'cfp'          },
+    { label: 'Submissions',  page: 'submissions'  },
     { label: 'Committee',    page: 'committee'    },
     { label: 'Dates',        page: 'dates'        },
     { label: 'Speakers',     page: 'speakers'     },
     { label: 'Sponsors',     page: 'sponsors'     },
     { label: 'Registration', page: 'registration' },
+    { label: 'Contact',      page: 'contact'      },
   ];
 
   return (
