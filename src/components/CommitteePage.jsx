@@ -7,17 +7,6 @@ const CommitteePage = ({ navigate, currentPage }) => {
     // ── TOP-LEVEL SPECIAL MEMBERS (shown prominently at top) ──────────────
     const featuredMembers = [
         {
-            group: "General Chair",
-            name: "Dr. Rajesha S",
-            title: "Principal, Atria Institute of Technology",
-            affiliation: "Atria Institute of Technology, Bangalore",
-            roles: ["General Chair", "IEEE Member"],
-            extra: "Leader in academic administration and computing education",
-            location: "Bengaluru, Karnataka, India",
-            linkedin: "https://www.linkedin.com/",
-            initials: "RS"
-        },
-        {
             group: "Steering Committee",
             name: "Dr. Abhishek Appaji M",
             title: "Professor, BMSIT",
