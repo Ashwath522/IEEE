@@ -64,10 +64,6 @@ const Navbar = ({ currentPage, navigate }) => {
                 Atria Institute of Technology, Bangalore &nbsp;·&nbsp; July 30–31, 2027
               </span>
             </div>
-            <div className="banner-ieee">
-              <span className="banner-ieee-text">IEEE</span>
-              <span className="banner-ieee-sub">Conference</span>
-            </div>
           </div>
         </div>
 
