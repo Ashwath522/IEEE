@@ -2,10 +2,21 @@ import React from 'react';
 import Navbar from './Navbar';
 import './CommitteePage.css';
 
-const CommitteePage = ({ navigate }) => {
+const CommitteePage = ({ navigate, currentPage }) => {
 
     // ── TOP-LEVEL SPECIAL MEMBERS (shown prominently at top) ──────────────
     const featuredMembers = [
+        {
+            group: "General Chair",
+            name: "Dr. Rajesha S",
+            title: "Principal, Atria Institute of Technology",
+            affiliation: "Atria Institute of Technology, Bangalore",
+            roles: ["General Chair", "IEEE Member"],
+            extra: "Leader in academic administration and computing education",
+            location: "Bengaluru, Karnataka, India",
+            linkedin: "https://www.linkedin.com/",
+            initials: "RS"
+        },
         {
             group: "Steering Committee",
             name: "Dr. Abhishek Appaji M",
@@ -22,7 +33,7 @@ const CommitteePage = ({ navigate }) => {
             name: "Saneesh Cleatus Thundiyil, PhD",
             title: "Chair, IEEE Signal Processing Society, Bangalore Chapter",
             affiliation: "Computational Neuroscience and Engineering Research Lab",
-            roles: ["IEEE SPS"],
+            roles: ["ECE, BMSIT", "IEEE SPS"],
             extra: "ECE, BMS Institute of Technology & Management, Bangalore - India",
             location: "Bengaluru, Karnataka, India",
             linkedin: "https://in.linkedin.com/in/saneesh-cleatus/",
@@ -96,7 +107,6 @@ const CommitteePage = ({ navigate }) => {
                         </button>
                     </div>
                 </div>
-                <div className="hero-bg-accent"></div>
             </div>
 
             <div className="committee-content container">
@@ -179,7 +189,7 @@ const CommitteePage = ({ navigate }) => {
 
             <footer className="footer">
                 <div className="container">
-                    <p>&copy; 2026 IEEE Conference. All rights reserved.</p>
+                    <p>&copy; 2027 IC2ST. All rights reserved.</p>
                 </div>
             </footer>
         </div>

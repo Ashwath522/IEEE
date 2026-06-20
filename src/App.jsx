@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import HomePage      from './components/HomePage';
-import AboutPage     from './components/AboutPage';
 import DatesPage     from './components/DatesPage';
 import CFPPage       from './components/CFPPage';
 import SubmissionsPage from './components/SubmissionsPage';
@@ -12,7 +11,7 @@ import ContactPage   from './components/ContactPage';
 import AdminPage     from './components/AdminPage';
 import './index.css';
 
-// pages: home | about | cfp | submissions | committee | dates | speakers | sponsors | registration | contact | admin
+// pages: home | cfp | submissions | committee | dates | speakers | sponsors | registration | contact | admin
 function App() {
   const [page, setPage] = useState('home');
 
@@ -24,7 +23,6 @@ function App() {
   const props = { navigate, currentPage: page };
 
   switch (page) {
-    case 'about':        return <AboutPage        {...props} />;
     case 'cfp':          return <CFPPage          {...props} />;
     case 'submissions':  return <SubmissionsPage  {...props} />;
     case 'committee':    return <CommitteePage    {...props} />;

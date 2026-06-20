@@ -37,7 +37,6 @@ const Navbar = ({ currentPage, navigate }) => {
 
   const navItems = [
     { label: 'Home',         page: 'home'         },
-    { label: 'About',        page: 'about'        },
     { label: 'CFP',          page: 'cfp'          },
     { label: 'Submissions',  page: 'submissions'  },
     { label: 'Committee',    page: 'committee'    },

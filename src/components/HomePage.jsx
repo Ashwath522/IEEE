@@ -38,7 +38,33 @@ const HomePage = ({ navigate, currentPage }) => (
                 </div>
                 <div className="hero-btns">
                     <button className="btn btn-primary" onClick={() => navigate('registration')}>Register Now</button>
-                    <button className="btn btn-outline" onClick={() => navigate('about')}>Learn More</button>
+                    <button className="btn btn-outline" onClick={() => document.getElementById('about-section')?.scrollIntoView({ behavior: 'smooth' })}>Learn More</button>
+                </div>
+            </div>
+        </section>
+
+        {/* About the Conference Section */}
+        <section className="home-about" id="about-section">
+            <div className="container">
+                <h2 className="section-title">About the Conference</h2>
+                <div className="about-content-wrapper">
+                    <p>
+                        The IEEE International Conference on Intelligence Computing, Communication
+                        and Sustainable Technologies (IC2ST-27) aims to provide a premier
+                        interdisciplinary platform for researchers, academicians, industry
+                        professionals, and students to present and discuss innovations in
+                        intelligent systems, advanced communication technologies, computing
+                        paradigms, and sustainable engineering solutions.
+                    </p>
+                    <p>
+                        The conference focuses on the integration of Artificial Intelligence,
+                        next-generation communication networks, computational intelligence, and
+                        green technologies to address real-world challenges aligned with
+                        sustainable development goals. IC2ST-27 seeks high-quality original
+                        research contributions that demonstrate theoretical advancements,
+                        practical implementations, and innovative applications contributing to
+                        technological sustainability.
+                    </p>
                 </div>
             </div>
         </section>
@@ -83,7 +109,25 @@ const HomePage = ({ navigate, currentPage }) => (
             </div>
         </section>
 
-        
+        {/* Contacts Section */}
+        <section className="home-contacts">
+            <div className="container">
+                <h2 className="section-title">Contact Organizing Committee</h2>
+                <div className="contacts-grid">
+                    <div className="contact-card">
+                        <h3>Jeevitha B. K.</h3>
+                        <p className="contact-role">Organizing Chair, IC2ST-27</p>
+                        <p>✉ bkjeevitha87@ieee.org</p>
+                        <p>✉ bkjeevitha87@gmail.com</p>
+                    </div>
+                    <div className="contact-card">
+                        <h3>Rajani Rai B.</h3>
+                        <p className="contact-role">Organizing Chair, IC2ST-27</p>
+                        <p>✉ rajani.rai@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <footer className="footer"><p>&copy; 2027 IC2ST. All rights reserved.</p></footer>
     </div>

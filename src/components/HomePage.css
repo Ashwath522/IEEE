@@ -825,3 +825,23 @@
   }
 }
 
+.home-about {
+  padding: 80px 20px;
+  background-color: #fff;
+  border-bottom: 1px solid #f0f0f0;
+}
+.about-content-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #333;
+  text-align: justify;
+}
+.about-content-wrapper p {
+  margin-bottom: 20px;
+}
+.about-content-wrapper p:last-child {
+  margin-bottom: 0;
+}
+
