@@ -33,18 +33,12 @@ const ContactPage = ({ navigate, currentPage }) => {
                         {/* Left: Contact Info */}
                         <div className="contact-info-panel">
                             <div className="contact-section-block">
-                                <h2>Organizing Chairs</h2>
+                                <h2>Organizing Contact</h2>
                                 <div className="contact-details-list">
                                     <div className="contact-detail-item">
-                                        <strong>Jeevitha B. K.</strong>
-                                        <p>Organizing Chair, IC2ST-27</p>
-                                        <p>✉ bkjeevitha87@ieee.org</p>
-                                        <p>✉ bkjeevitha87@gmail.com</p>
-                                    </div>
-                                    <div className="contact-detail-item">
-                                        <strong>Rajani Rai B.</strong>
-                                        <p>Organizing Chair, IC2ST-27</p>
-                                        <p>✉ rajani.rai@gmail.com</p>
+                                        <strong>Prasuna VP</strong>
+                                        <p>Organizing Contact, IC2ST-27</p>
+                                        <p>📞 Phone: +91 98805 98093</p>
                                     </div>
                                 </div>
                             </div>

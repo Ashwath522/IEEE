@@ -96,18 +96,12 @@ const SubmissionsPage = ({ navigate, currentPage }) => (
                 {/* CFP / Submission Contact Details */}
                 <div className="cfp-section submission-contact-section">
                     <h2>Submission &amp; CFP Queries</h2>
-                    <p className="section-subtitle">For queries regarding paper submissions, template issues, or CMT registration, feel free to reach out to our Organizing Chairs:</p>
-                    <div className="contact-grid">
+                    <p className="section-subtitle">For queries regarding paper submissions, template issues, or CMT registration, feel free to reach out to our organizing contact:</p>
+                    <div className="contact-grid single-contact">
                         <div className="contact-card">
-                            <h3>Jeevitha B. K.</h3>
-                            <p className="contact-role">Organizing Chair, IC2ST-27</p>
-                            <p className="contact-email">✉ bkjeevitha87@ieee.org</p>
-                            <p className="contact-email-alt">✉ bkjeevitha87@gmail.com</p>
-                        </div>
-                        <div className="contact-card">
-                            <h3>Rajani Rai B.</h3>
-                            <p className="contact-role">Organizing Chair, IC2ST-27</p>
-                            <p className="contact-email">✉ rajani.rai@gmail.com</p>
+                            <h3>Prasuna VP</h3>
+                            <p className="contact-role">Organizing Contact, IC2ST-27</p>
+                            <p className="contact-email">📞 Phone: +91 98805 98093</p>
                         </div>
                     </div>
                 </div>

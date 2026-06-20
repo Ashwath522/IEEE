@@ -665,3 +665,12 @@
         grid-template-columns: 1fr;
     }
 }
+
+.contact-grid.single-contact {
+    display: flex;
+    justify-content: center;
+}
+.contact-grid.single-contact .contact-card {
+    max-width: 450px;
+    width: 100%;
+}

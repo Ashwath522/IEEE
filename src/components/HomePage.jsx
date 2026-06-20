@@ -113,17 +113,11 @@ const HomePage = ({ navigate, currentPage }) => (
         <section className="home-contacts">
             <div className="container">
                 <h2 className="section-title">Contact Organizing Committee</h2>
-                <div className="contacts-grid">
+                <div className="contacts-grid single-contact">
                     <div className="contact-card">
-                        <h3>Jeevitha B. K.</h3>
-                        <p className="contact-role">Organizing Chair, IC2ST-27</p>
-                        <p>✉ bkjeevitha87@ieee.org</p>
-                        <p>✉ bkjeevitha87@gmail.com</p>
-                    </div>
-                    <div className="contact-card">
-                        <h3>Rajani Rai B.</h3>
-                        <p className="contact-role">Organizing Chair, IC2ST-27</p>
-                        <p>✉ rajani.rai@gmail.com</p>
+                        <h3>Prasuna VP</h3>
+                        <p className="contact-role">Organizing Contact, IC2ST-27</p>
+                        <p>📞 Phone: +91 98805 98093</p>
                     </div>
                 </div>
             </div>
