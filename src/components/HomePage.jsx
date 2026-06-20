@@ -83,25 +83,7 @@ const HomePage = ({ navigate, currentPage }) => (
             </div>
         </section>
 
-        {/* Contacts Section */}
-        <section className="home-contacts">
-            <div className="container">
-                <h2 className="section-title">Contact Organizing Committee</h2>
-                <div className="contacts-grid">
-                    <div className="contact-card">
-                        <h3>Jeevitha B. K.</h3>
-                        <p className="contact-role">Organizing Chair, IC2ST-27</p>
-                        <p>✉ bkjeevitha87@ieee.org</p>
-                        <p>✉ bkjeevitha87@gmail.com</p>
-                    </div>
-                    <div className="contact-card">
-                        <h3>Rajani Rai B.</h3>
-                        <p className="contact-role">Organizing Chair, IC2ST-27</p>
-                        <p>✉ rajani.rai@gmail.com</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        
 
         <footer className="footer"><p>&copy; 2027 IC2ST. All rights reserved.</p></footer>
     </div>
