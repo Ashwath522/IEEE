@@ -30,16 +30,7 @@ const CommitteePage = ({ navigate, currentPage }) => {
         }
     ];
 
-    // ── EXISTING COMMITTEE DATA ────────────────────────────────────────────
     const committeeData = {
-        "Organising - General Chairs": [
-            { name: "Dr. Rajesha S", image: "rajesha_s.jpg" }
-        ],
-        "General Co Chair": [
-            { name: "Dr. Nalinakshi N", image: "nalinakshi_n.jpg" },
-            { name: "Dr. Ravichandra R", image: "ravichandra_r.jpg" },
-            { name: "Dr. Surendra H J", image: "surendra_h_j.jpg" }
-        ],
         "Advisory Committee": [
             {
                 name: "Dr. Deepa Shenoy",
@@ -53,6 +44,14 @@ const CommitteePage = ({ navigate, currentPage }) => {
                 location: "Shimoga, Karnataka, India",
                 linkedin: "https://www.linkedin.com/in/dr-sathyanarayana-s-v-41307023/"
             }
+        ],
+        "Organising - General Chairs": [
+            { name: "Dr. Rajesha S", image: "rajesha_s.jpg" }
+        ],
+        "General Co Chair": [
+            { name: "Dr. Nalinakshi N", image: "nalinakshi_n.jpg" },
+            { name: "Dr. Ravichandra R", image: "ravichandra_r.jpg" },
+            { name: "Dr. Surendra H J", image: "surendra_h_j.jpg" }
         ],
         "TPC Chairs": [
             { name: "Dr. Keshava Murthy", image: "keshava_murthy.jpg" },
