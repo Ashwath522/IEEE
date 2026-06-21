@@ -1,17 +1,20 @@
 /* THE ULTIMATE REGISTRATION PAGE AESTHETICS */
 :root {
-  --primary: #c41e3a;
+  --primary: #1f2937;
+  --primary-hover: #111827;
+  --bg-page: #0a0a0a;
+  --border-color: rgba(255, 255, 255, 0.1);
 }
 
 .registration-page {
   width: 100vw;
-  height: 100vh;
-  background: #0a0a0a;
+  min-height: 100vh;
+  background: var(--bg-page);
   display: flex;
   flex-direction: column;
-  overflow: hidden;
   position: relative;
   font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
 }
 
 /* Background: Nebula & Geometry */
@@ -20,49 +23,36 @@
   top: 0; left: 0;
   width: 100%; height: 100%;
   z-index: 0;
+  pointer-events: none;
 }
 
 .nebula {
   position: absolute;
   border-radius: 50%;
   filter: blur(120px);
-  opacity: 0.35;
+  opacity: 0.25;
   animation: nebulaDrift 25s infinite alternate ease-in-out;
 }
 
-.nebula-1 { width: 900px; height: 900px; background: radial-gradient(circle, var(--primary), transparent); top: -250px; left: -250px; }
+.nebula-1 { width: 900px; height: 900px; background: radial-gradient(circle, #1e40af, transparent); top: -250px; left: -250px; }
 .nebula-2 { width: 800px; height: 800px; background: radial-gradient(circle, #2c3e50, transparent); bottom: -250px; right: -250px; animation-delay: -5s; }
-.nebula-3 { width: 600px; height: 600px; background: radial-gradient(circle, #3498db, transparent); top: 30%; left: 40%; animation-delay: -10s; }
+.nebula-3 { width: 600px; height: 600px; background: radial-gradient(circle, #0f172a, transparent); top: 30%; left: 40%; animation-delay: -10s; }
 
 @keyframes nebulaDrift {
   0% { transform: translate(0, 0) scale(1); }
-  100% { transform: translate(150px, 150px) scale(1.3); }
+  100% { transform: translate(100px, 100px) scale(1.2); }
 }
 
 .geometry-overlay {
   position: absolute;
   width: 100%; height: 100%;
-  background: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M60 0 L120 60 L60 120 L0 60 Z' fill='none' stroke='white' stroke-opacity='0.04' stroke-width='1'/%3E%3C/svg%3E");
+  background: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M60 0 L120 60 L60 120 L0 60 Z' fill='none' stroke='white' stroke-opacity='0.03' stroke-width='1'/%3E%3C/svg%3E");
   z-index: 1;
-}
-
-.bg-node {
-  position: absolute;
-  background: white;
-  border-radius: 50%;
-  box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
-  animation: starPulse 5s infinite alternate ease-in-out;
-  z-index: 2;
-}
-
-@keyframes starPulse {
-  0% { transform: scale(0.4); opacity: 0.1; }
-  100% { transform: scale(1.2); opacity: 0.7; }
 }
 
 /* Nav & Content */
 .reg-nav {
-  padding: 30px 50px;
+  padding: 35px 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -71,212 +61,136 @@
 }
 
 .back-btn {
-  padding: 12px 25px;
-  background: rgba(255,255,255,0.1);
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(10px);
   color: white;
-  border-radius: 12px;
+  border-radius: 8px;
   cursor: pointer;
-  font-weight: 700;
-  transition: all 0.3s ease;
-  border: 1px solid rgba(255,255,255,0.2);
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-.back-btn:hover { background: var(--primary); border-color: transparent; transform: scale(1.05); }
+.back-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
 
 .reg-content-wrapper {
   flex: 1;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  perspective: 2000px;
-  gap: 100px;
   position: relative;
   z-index: 5;
+  padding: 20px 0 80px;
 }
 
-/* Mascot */
-.character-mascot {
-  width: 450px;
-  position: relative;
-  transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.character-mascot.move-aside {
-  transform: translateX(-400px) scale(0.8);
-  opacity: 0;
-}
-
-.mascot-svg { width: 100%; height: auto; }
-
-.mascot-arm {
-  transform-origin: 130px 220px;
-  transition: transform 0.6s ease;
-}
-
-.mascot-arm.flipping {
-  animation: armPresentation 0.9s ease-in-out;
-}
-
-@keyframes armPresentation {
-  0% { transform: rotate(0); }
-  50% { transform: rotate(-35deg) translateY(-25px); }
-  100% { transform: rotate(0); }
-}
-
-/* Portal/Form Container */
-.form-portal-container {
-  width: 550px;
-  min-height: 450px;
-  position: relative;
-}
-
-.calendar-sheet {
-  position: absolute;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(20px);
-  padding: 50px;
-  border-radius: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 25px;
-  box-shadow: 0 50px 100px rgba(0,0,0,0.4);
-  border: 1px solid rgba(255,255,255,0.3);
-  backface-visibility: hidden;
-}
-
-.calendar-sheet.exit { animation: sheetOut 0.8s forwards; }
-.calendar-sheet.enter { animation: sheetIn 0.8s forwards; }
-
-@keyframes sheetOut {
-  0% { transform: translateZ(0) translateY(0); opacity: 1; }
-  100% { transform: translateZ(300px) translateY(-600px) rotateX(-45deg); opacity: 0; }
-}
-
-@keyframes sheetIn {
-  0% { transform: translateY(150px) scale(0.85); opacity: 0; }
-  100% { transform: translateY(0) scale(1); opacity: 1; }
-}
-
-/* Success Entrance */
-.conference-entrance {
-  position: relative;
+/* Registration Fee Tables Section */
+.registration-fees-container {
+  max-width: 1000px;
   width: 100%;
-  height: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  gap: 35px;
 }
 
-.door-wrapper {
-  position: relative;
-  width: 350px;
-  height: 450px;
-  transform-style: preserve-3d;
+.fees-section {
+  background: rgba(17, 24, 39, 0.7);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
 }
 
-.door {
-  position: absolute;
-  width: 50%; height: 100%;
-  background: #1a1a1a;
-  border: 4px solid #333;
-  transition: all 2s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 0 40px rgba(0,0,0,0.8);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.left-door { left: 0; transform-origin: left; border-radius: 15px 0 0 15px; }
-.right-door { right: 0; transform-origin: right; border-radius: 0 15px 15px 0; }
-
-.conference-entrance .left-door { transform: rotateY(-120deg); }
-.conference-entrance .right-door { transform: rotateY(120deg); }
-
-.entry-tag {
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%) translateZ(-50px);
-  width: 280px;
-  background: white;
-  padding: 40px;
-  text-align: center;
-  border-radius: 20px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-  opacity: 0;
-  animation: tagEntrance 1.2s forwards 0.5s;
-  border-top: 12px solid var(--primary);
-}
-
-@keyframes tagEntrance {
-  0% { opacity: 0; transform: translate(-50%, -50%) translateZ(-300px) scale(0.4); }
-  100% { opacity: 1; transform: translate(-50%, -50%) translateZ(0) scale(1); }
-}
-
-.redirecting-note {
-  margin-top: 50px;
-  color: #fff;
-  font-weight: 700;
-  font-size: 1.2rem;
-  text-shadow: 0 0 10px var(--primary);
-  animation: glowPulse 2s infinite;
-}
-
-@keyframes glowPulse {
-  0%, 100% { opacity: 0.5; }
-  50% { opacity: 1; text-shadow: 0 0 25px var(--primary); }
-}
-
-/* Utils */
-.calendar-sheet label { font-size: 1.8rem; font-weight: 900; color: var(--primary); }
-.reg-input { padding: 20px; border: 3px solid #eee; border-radius: 15px; font-size: 1.3rem; }
-.next-sheet-btn { background: var(--primary); color: white; padding: 20px; border-radius: 15px; font-weight: 800; font-size: 1.2rem; cursor: pointer; border: none; transition: 0.3s; }
-.next-sheet-btn:hover { transform: scale(1.02); box-shadow: 0 10px 30px rgba(196, 30, 58, 0.4); }
-
-.progress-indicator { display: flex; gap: 10px; justify-content: center; }
-.indicator-dot { width: 12px; height: 12px; border-radius: 50%; background: #ddd; transition: 0.4s; }
-.indicator-dot.active { background: var(--primary); transform: scale(1.5); }
-
-/* Center portal & Formal Styles */
-.centered-portal {
-  margin: 0 auto;
-}
-
-.sheet-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.fees-section h3 {
+  font-size: 1.35rem;
+  margin-top: 0;
   margin-bottom: 20px;
+  color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
 }
 
-.step-count {
+.table-wrapper {
+  overflow-x: auto;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.fees-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  background: rgba(0, 0, 0, 0.2);
+  min-width: 500px; /* Ensures nice sizing on mobile scroll */
+}
+
+.fees-table th, .fees-table td {
+  padding: 15px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.fees-table th {
+  background: rgba(255, 255, 255, 0.05);
+  color: #f3f4f6;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.fees-table td {
+  color: #d1d5db;
+  font-size: 0.95rem;
+}
+
+.fees-table tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.fees-table tr:last-child td {
+  border-bottom: none;
+}
+
+.extra-page-note {
   font-size: 0.9rem;
-  color: #999;
-  font-weight: 700;
-  letter-spacing: 1px;
+  color: #9ca3af;
+  margin: 12px 0 0 0;
 }
 
-.tag-header {
-  border-bottom: 2px solid #f2f2f2;
-  padding-bottom: 10px;
-  margin-bottom: 20px;
-  color: var(--primary);
-  font-weight: 900;
-  letter-spacing: 2px;
+.extra-page-note strong {
+  color: #f3f4f6;
 }
 
-.tag-footer {
-  margin-top: 25px;
-  background: var(--primary);
-  color: #fff;
-  padding: 8px 15px;
-  font-size: 0.75rem;
-  letter-spacing: 2px;
-  font-weight: 900;
-  border-radius: 5px;
-  display: inline-block;
+/* Mobile Responsive Adapts */
+@media (max-width: 768px) {
+  .reg-nav {
+    padding: 20px 24px;
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+  .reg-nav h2 {
+    font-size: 1.4rem;
+    margin: 0;
+  }
+  .back-btn {
+    align-self: center;
+  }
+  .fees-section {
+    padding: 20px;
+  }
+  .fees-section h3 {
+    font-size: 1.15rem;
+  }
+  .fees-table th, .fees-table td {
+    padding: 12px 15px;
+  }
 }
-

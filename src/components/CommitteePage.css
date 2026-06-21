@@ -154,6 +154,36 @@
     font-weight: 400;
 }
 
+.member-title {
+    font-size: 0.8rem;
+    color: #4b5563;
+    margin-top: 4px;
+    font-weight: 500;
+    line-height: 1.3;
+}
+
+.member-location {
+    font-size: 0.75rem;
+    color: #9ca3af;
+    margin-top: 2px;
+}
+
+.member-linkedin-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8px;
+    font-size: 0.75rem;
+    color: #374151;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.15s ease;
+}
+
+.member-linkedin-link:hover {
+    color: #111827;
+}
+
 /* Featured / Distinguished Section */
 .featured-section {
     margin-bottom: 60px;
