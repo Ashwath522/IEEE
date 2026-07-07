@@ -23,7 +23,7 @@ const Counter = ({ target, duration = 2000 }) => {
 const HomePage = ({ navigate, currentPage }) => (
     <div className="home-page">
         <Navbar currentPage={currentPage} navigate={navigate} />
-        
+
         {/* Hero Section */}
         <section className="hero">
             <div className="hero-content">
@@ -49,7 +49,7 @@ const HomePage = ({ navigate, currentPage }) => (
                 <h2 className="section-title">About the Conference</h2>
                 <div className="about-content-wrapper">
                     <p>
-                        The IEEE International Conference on Intelligence Computing, Communication
+                        The International Conference on Intelligence Computing, Communication
                         and Sustainable Technologies (IC2ST-27) aims to provide a premier
                         interdisciplinary platform for researchers, academicians, industry
                         professionals, and students to present and discuss innovations in
