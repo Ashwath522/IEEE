@@ -3,11 +3,11 @@ import Navbar from './Navbar';
 import './PageLayout.css';
 
 const dates = [
-    { event: "Start of Paper Submissions",       date: "February 1st, 2027",  icon: "📝" },
-    { event: "Deadline for Submission of Papers", date: "April 3rd, 2027",    icon: "⏰" },
-    { event: "Notification of Acceptance",        date: "May 20th, 2027",     icon: "✅" },
-    { event: "Submission of Camera-Ready Papers", date: "June 5th, 2027",     icon: "📄" },
-    { event: "Conference Dates",                  date: "July 30th & 31st, 2027", icon: "🎓" },
+    { event: "Start of Paper Submissions", date: "February 1st, 2027", icon: "📝" },
+    { event: "Deadline for Submission of Papers", date: "March 31st, 2027", icon: "⏰" },
+    { event: "Notification of Acceptance", date: "May 31st, 2027", icon: "✅" },
+    { event: "Submission of Camera-Ready Papers", date: "June 20th, 2027", icon: "📄" },
+    { event: "Conference Dates", date: "July 30th & 31st, 2027", icon: "🎓" },
 ];
 
 const DatesPage = ({ navigate, currentPage }) => (
