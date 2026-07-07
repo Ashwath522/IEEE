@@ -33,7 +33,7 @@ const SpeakersPage = ({ navigate, currentPage }) => (
                 </div>
             </div>
         </main>
-        <footer className="footer"><p>&copy; 2027 IC2ST. All rights reserved.</p></footer>
+        <footer className="footer"><p>&copy; 2027 IC2ST. All rights reserved. | Last Updated: July 07, 2026</p></footer>
     </div>
 );
 

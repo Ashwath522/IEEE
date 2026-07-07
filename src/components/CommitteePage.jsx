@@ -201,7 +201,7 @@ const CommitteePage = ({ navigate, currentPage }) => {
 
             <footer className="footer">
                 <div className="container">
-                    <p>&copy; 2027 IC2ST. All rights reserved.</p>
+                    <p>&copy; 2027 IC2ST. All rights reserved. | Last Updated: July 07, 2026</p>
                 </div>
             </footer>
         </div>
