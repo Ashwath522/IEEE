@@ -169,6 +169,23 @@
   color: #f3f4f6;
 }
 
+
+.cmt-acknowledgement {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  padding: 28px 32px;
+  text-align: center;
+}
+
+.cmt-acknowledgement p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #4b5563;
+}
+
 /* Mobile Responsive Adapts */
 @media (max-width: 768px) {
   .reg-nav {

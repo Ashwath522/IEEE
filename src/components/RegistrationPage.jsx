@@ -74,6 +74,10 @@ const RegistrationPage = ({ navigate }) => {
                         </div>
                         <p className="extra-page-note"><strong>Extra Pages (After 6 Pages):</strong> $10 per page</p>
                     </div>
+
+                    <div className="cmt-acknowledgement">
+                        <p>The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for software development and support.</p>
+                    </div>
                 </div>
             </div>
         </div>
