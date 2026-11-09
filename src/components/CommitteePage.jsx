@@ -48,40 +48,40 @@ const CommitteePage = ({ navigate, currentPage }) => {
             }
         ],
         "Organising - General Chairs": [
-            { name: "Dr. Rajesha S", image: "rajesha_s.jpg" }
+            { name: "Dr. Rajesha S", image: "rajesha_s.jpg", title: "Principal, Atria Institute of Technology", location: "Atria Institute of Technology, Bengaluru" }
         ],
         "General Co Chair": [
-            { name: "Dr. Nalinakshi N", image: "nalinakshi_n.jpg" },
-            { name: "Dr. Ravichandra R", image: "ravichandra_r.jpg" },
-            { name: "Dr. Surendra H J", image: "surendra_h_j.jpg" }
+            { name: "Dr. Nalinakshi N", image: "nalinakshi_n.jpg", title: "Vice Principal; Professor & Head, Dept. of Basic Science Engineering & Humanities", location: "Atria Institute of Technology, Bengaluru" },
+            { name: "Dr. Ravichandra R", image: "ravichandra_r.jpg", location: "Atria Institute of Technology, Bengaluru" },
+            { name: "Dr. Surendra H J", image: "surendra_h_j.jpg", location: "Atria Institute of Technology, Bengaluru" }
         ],
         "TPC Chairs": [
-            { name: "Dr. Keshava Murthy", image: "keshava_murthy.jpg" },
-            { name: "Dr. Devi Kannan", image: "devi_kannan.jpg" },
-            { name: "Dr. Deepak N R", image: "deepak_n_r.jpg" }
+            { name: "Dr. Keshava Murthy", image: "keshava_murthy.jpg", location: "Atria Institute of Technology, Bengaluru" },
+            { name: "Dr. Devi Kannan", image: "devi_kannan.jpg", location: "Atria Institute of Technology, Bengaluru" },
+            { name: "Dr. Deepak N R", image: "deepak_n_r.jpg", location: "Atria Institute of Technology, Bengaluru" }
         ],
         "TPC Co Chairs": [
-            { name: "Dr. Vasanthi S", image: "vasanthi_s.jpg" },
-            { name: "Dr. Prasuna VNP", image: "prasuna_vnp.jpg" },
-            { name: "Dr. Farahana", image: "farahana.jpg" }
+            { name: "Dr. Vasanthi S", image: "vasanthi_s.jpg", location: "Atria Institute of Technology, Bengaluru" },
+            { name: "Dr. Prasuna VNP", image: "prasuna_vnp.jpg", location: "Atria Institute of Technology, Bengaluru" },
+            { name: "Dr. Farahana", image: "farahana.jpg", location: "Atria Institute of Technology, Bengaluru" }
         ],
         "Publication Chairs": [
-            { name: "Dr. Jyothi Metan", image: "jyothi_metan.jpg" },
-            { name: "Dr. Pradeep", image: "pradeep.jpg" }
+            { name: "Dr. Jyothi Metan", image: "jyothi_metan.jpg", location: "Atria Institute of Technology, Bengaluru" },
+            { name: "Dr. Pradeep", image: "pradeep.jpg", location: "Atria Institute of Technology, Bengaluru" }
         ],
         "Publication Co-Chairs": [
-            { name: "Prof. Jayanthi", image: "jayanthi.jpg" },
-            { name: "Dr. Ramesh N", image: "ramesh_n.jpg" },
-            { name: "Dr. Rakhi S", image: "rakhi_s.jpg" },
-            { name: "Dr. Kavitha S Patil", image: "kavitha_s_patil.jpg" }
+            { name: "Prof. Jayanthi", image: "jayanthi.jpg", location: "Atria Institute of Technology, Bengaluru" },
+            { name: "Dr. Ramesh N", image: "ramesh_n.jpg", location: "Atria Institute of Technology, Bengaluru" },
+            { name: "Dr. Rakhi S", image: "rakhi_s.jpg", location: "Atria Institute of Technology, Bengaluru" },
+            { name: "Dr. Kavitha S Patil", image: "kavitha_s_patil.jpg", location: "Atria Institute of Technology, Bengaluru" }
         ],
         "Finance Chairs": [
-            { name: "Dr. Anand", image: "anand.jpg" },
-            { name: "Dr. Ravikumar J", image: "ravikumar_j.jpg" }
+            { name: "Dr. Anand", image: "anand.jpg", location: "Atria Institute of Technology, Bengaluru" },
+            { name: "Dr. Ravikumar J", image: "ravikumar_j.jpg", location: "Atria Institute of Technology, Bengaluru" }
         ],
         "Finance Co-Chairs": [
-            { name: "Prof. Somesh", image: "somesh.jpg" },
-            { name: "Prof TejasS", image: "tejass.jpg" }
+            { name: "Prof. Somesh", image: "somesh.jpg", location: "Atria Institute of Technology, Bengaluru" },
+            { name: "Prof. Tejas S", image: "tejass.jpg", location: "Atria Institute of Technology, Bengaluru" }
         ]
     };
 
