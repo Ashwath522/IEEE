@@ -345,7 +345,7 @@
 
 .cmt-btn {
     display: inline-block;
-    background: #007bff;
+    background: var(--primary);
     color: #fff;
     padding: 10px 20px;
     border-radius: 8px;
@@ -356,7 +356,7 @@
     transition: all 0.25s;
 }
 
-.cmt-btn:hover { background: #0056b3; transform: translateY(-2px); }
+.cmt-btn:hover { background: #a01a30; transform: translateY(-2px); }
 
 .revision-highlight span {
     background: #fff3cd;
@@ -492,13 +492,6 @@
    FOOTER (shared)
    ═══════════════════════════════════════════════════════ */
 
-.footer {
-    background: #222;
-    color: #fff;
-    text-align: center;
-    padding: 36px 0;
-    font-size: 0.9rem;
-}
 
 /* ── Responsive ── */
 @media (max-width: 768px) {

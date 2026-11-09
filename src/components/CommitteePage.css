@@ -1,12 +1,5 @@
-:root {
-    --primary: #b31b1b; /* IEEE Professional Red */
-    --text-main: #111827;
-    --text-muted: #6b7280;
-    --bg-page: #fcfcfc;
-}
-
 .committee-page {
-    background-color: var(--bg-page);
+    background-color: #fcfcfc;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -35,23 +28,22 @@
 }
 
 .committee-content {
-    flex: 1;
-    padding: 40px 0 100px;
+    padding: 60px 20px 80px;
 }
 
 .committee-hierarchy {
     display: flex;
     flex-direction: column;
-    gap: 80px;
+    gap: 56px;
 }
 
 .group-header {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 28px;
 }
 
 .group-header h3 {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: var(--primary); /* Switched to Red */
     margin: 0;
@@ -73,17 +65,17 @@
 
 .members-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 40px;
-    max-width: 1200px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 260px));
+    justify-content: center;
+    gap: 24px;
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 0 20px;
 }
 
 .member-card {
     background: #fff;
-    border-radius: 20px;
-    padding: 25px;
+    border-radius: 16px;
+    padding: 24px 20px;
     text-align: center;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
@@ -97,18 +89,18 @@
 }
 
 .member-image-wrapper {
-    margin-bottom: 20px;
+    margin-bottom: 14px;
     display: flex;
     justify-content: center;
 }
 
 .member-image {
-    width: 220px;
-    height: 220px;
-    border-radius: 16px; 
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
     overflow: hidden;
-    background: #fff;
-    border: 1px solid #eee;
+    background: #fdf2f2;
+    border: 3px solid #f0d0d0;
 }
 
 .member-image img {
@@ -125,7 +117,7 @@
     align-items: center;
     background: #fdf2f2;
     color: var(--primary);
-    font-size: 3rem;
+    font-size: 1.8rem;
     font-weight: 800;
 }
 
@@ -136,14 +128,14 @@
 }
 
 .member-name {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     font-weight: 800;
     color: #1a1a1a; /* Professional dark gray/black for name */
     margin: 0;
 }
 
 .member-role {
-    font-size: 0.9rem;
+    font-size: 0.75rem;
     color: var(--primary); /* Position in Red */
     font-weight: 600;
     text-transform: uppercase;
@@ -180,12 +172,6 @@
     color: #004182;
 }
 
-.footer {
-    padding: 60px 0;
-    background: #fff;
-    text-align: center;
-    border-top: 1px solid #eee;
-}
 
 /* ═══════════════════════════════════════════════
    FEATURED / DISTINGUISHED MEMBERS (top section)
@@ -383,8 +369,13 @@
 /* Responsive */
 @media (max-width: 768px) {
     .members-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
     }
+    .member-card { padding: 18px 12px; }
+    .member-image { width: 72px; height: 72px; }
+    .member-image-placeholder { font-size: 1.4rem; }
+    .member-name { font-size: 0.98rem; }
     .featured-card {
         flex-direction: column;
         align-items: center;

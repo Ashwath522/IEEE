@@ -1,0 +1,121 @@
+/* ── Shared site footer ── */
+.site-footer {
+  background: #222;
+  color: #d1d5db;
+  font-size: 0.92rem;
+  margin-top: auto;
+}
+
+.footer-cta {
+  background: #fdf2f2;
+  border-top: 1px solid #f0d0d0;
+  color: #111;
+}
+
+.footer-cta-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-top: 36px;
+  padding-bottom: 36px;
+  flex-wrap: wrap;
+}
+
+.footer-cta h3 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #111;
+  margin-bottom: 4px;
+}
+
+.footer-cta p {
+  color: #555;
+}
+
+.footer-cta-btns {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.footer-cta .btn-outline-light {
+  background: #fff;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  padding: 10px 22px;
+}
+
+.footer-cta .btn-outline-light:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1.2fr 1fr;
+  gap: 32px;
+  padding-top: 48px;
+  padding-bottom: 36px;
+}
+
+.footer-col h4 {
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  margin-bottom: 14px;
+}
+
+.footer-col p {
+  line-height: 1.7;
+  margin-bottom: 8px;
+}
+
+.footer-col .footer-date {
+  color: #fff;
+  font-weight: 600;
+}
+
+.footer-col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.footer-col button,
+.footer-col a {
+  background: none;
+  border: none;
+  padding: 0;
+  color: #d1d5db;
+  font: inherit;
+  cursor: pointer;
+  text-align: left;
+  transition: color 0.2s ease;
+}
+
+.footer-col button:hover,
+.footer-col a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  border-top: 1px solid #333;
+  text-align: center;
+  padding: 18px 20px;
+  font-size: 0.82rem;
+  color: #9ca3af;
+}
+
+@media (max-width: 900px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 560px) {
+  .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+  .footer-cta-inner { flex-direction: column; align-items: flex-start; }
+  .footer-cta-btns .btn { flex: 1; }
+}

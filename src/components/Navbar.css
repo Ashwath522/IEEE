@@ -14,7 +14,7 @@
 .header-banner {
   background: #fff;
   border-bottom: 2px solid #e8e8e8;
-  cursor: default;
+  cursor: pointer;
   width: 100%;
 }
 

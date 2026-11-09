@@ -18,6 +18,7 @@ const Navbar = ({ currentPage, navigate }) => {
   }, []);
 
   const handleLogoClick = () => {
+    if (currentPage !== 'home') navigate('home');
     const next = logoClicks + 1;
     if (next === 3) { setLogoClicks(0); setShowAdminModal(true); }
     else {

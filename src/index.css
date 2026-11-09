@@ -57,3 +57,23 @@ ul {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(196, 30, 58, 0.3);
 }
+
+.btn-outline {
+  background: #fff;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  padding: 10px 22px;
+  display: inline-block;
+}
+
+.btn-outline:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible {
+  outline: 3px solid rgba(196, 30, 58, 0.45);
+  outline-offset: 2px;
+}
+
+html { scroll-behavior: smooth; }

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Navbar from './Navbar';
+import Footer from './Footer';
 import './PageLayout.css';
 
 const ContactPage = ({ navigate, currentPage }) => {
@@ -120,7 +121,7 @@ const ContactPage = ({ navigate, currentPage }) => {
                     </div>
                 </div>
             </main>
-            <footer className="footer"><p>&copy; 2027 IC2ST. All rights reserved. | Last Updated: July 07, 2026</p></footer>
+            <Footer navigate={navigate} />
         </div>
     );
 };

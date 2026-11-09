@@ -1,158 +1,114 @@
-/* THE ULTIMATE REGISTRATION PAGE AESTHETICS */
-:root {
-  --primary: #c41e3a;
-  --primary-hover: #a01a30;
-  --bg-page: #0a0a0a;
-  --border-color: rgba(255, 255, 255, 0.1);
+/* ── Registration page (uses shared PageLayout shell) ── */
+
+/* How-to-register steps */
+.reg-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 40px;
 }
 
-.registration-page {
-  width: 100vw;
-  min-height: 100vh;
-  background: var(--bg-page);
+.reg-step {
   display: flex;
-  flex-direction: column;
-  position: relative;
-  font-family: 'Inter', sans-serif;
-  overflow-x: hidden;
-}
-
-/* Background: Nebula & Geometry */
-.ultimate-bg {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  z-index: 0;
-  pointer-events: none;
-}
-
-.nebula {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(120px);
-  opacity: 0.25;
-  animation: nebulaDrift 25s infinite alternate ease-in-out;
-}
-
-.nebula-1 { width: 900px; height: 900px; background: radial-gradient(circle, #1e40af, transparent); top: -250px; left: -250px; }
-.nebula-2 { width: 800px; height: 800px; background: radial-gradient(circle, #2c3e50, transparent); bottom: -250px; right: -250px; animation-delay: -5s; }
-.nebula-3 { width: 600px; height: 600px; background: radial-gradient(circle, #0f172a, transparent); top: 30%; left: 40%; animation-delay: -10s; }
-
-@keyframes nebulaDrift {
-  0% { transform: translate(0, 0) scale(1); }
-  100% { transform: translate(100px, 100px) scale(1.2); }
-}
-
-.geometry-overlay {
-  position: absolute;
-  width: 100%; height: 100%;
-  background: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M60 0 L120 60 L60 120 L0 60 Z' fill='none' stroke='white' stroke-opacity='0.03' stroke-width='1'/%3E%3C/svg%3E");
-  z-index: 1;
-}
-
-/* Nav & Content */
-.reg-nav {
-  padding: 35px 50px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-  z-index: 10;
-}
-
-.back-btn {
-  padding: 10px 20px;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(10px);
-  color: white;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 0.9rem;
-  transition: all 0.2s ease;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.back-btn:hover {
-  background: rgba(255, 255, 255, 0.15);
-  transform: translateY(-2px);
-}
-
-.reg-content-wrapper {
-  flex: 1;
-  display: flex;
+  gap: 16px;
   align-items: flex-start;
-  justify-content: center;
-  position: relative;
-  z-index: 5;
-  padding: 20px 0 80px;
+  background: #fff;
+  border: 1px solid #f0e8e8;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
 }
 
-/* Registration Fee Tables Section */
-.registration-fees-container {
-  max-width: 1000px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 0 24px;
+.reg-step-num {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 800;
   display: flex;
-  flex-direction: column;
-  gap: 35px;
+  align-items: center;
+  justify-content: center;
+}
+
+.reg-step h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 4px;
+}
+
+.reg-step p {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.55;
+}
+
+/* Fee tables */
+.registration-fees-container {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
 }
 
 .fees-section {
-  background: rgba(17, 24, 39, 0.7);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
-  padding: 30px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  background: #fff;
+  border-radius: 14px;
+  border: 1px solid #eee;
+  border-top: 4px solid var(--primary);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
+  padding: 26px;
 }
 
 .fees-section h3 {
-  font-size: 1.35rem;
-  margin-top: 0;
-  margin-bottom: 20px;
-  color: #fff;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding-bottom: 12px;
+  font-size: 1.25rem;
   font-weight: 700;
-  letter-spacing: 0.5px;
+  color: #111;
+  margin-bottom: 18px;
 }
 
 .table-wrapper {
   overflow-x: auto;
-  margin-bottom: 15px;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid #eee;
+  border-radius: 10px;
 }
 
 .fees-table {
   width: 100%;
   border-collapse: collapse;
   text-align: left;
-  background: rgba(0, 0, 0, 0.2);
-  min-width: 500px; /* Ensures nice sizing on mobile scroll */
 }
 
-.fees-table th, .fees-table td {
-  padding: 15px 20px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+.fees-table th,
+.fees-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 0.95rem;
+  white-space: nowrap;
 }
 
 .fees-table th {
-  background: rgba(255, 255, 255, 0.05);
-  color: #f3f4f6;
-  font-weight: 600;
-  font-size: 0.95rem;
+  background: #fdf2f2;
+  color: #111;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .fees-table td {
-  color: #d1d5db;
-  font-size: 0.95rem;
+  color: #333;
 }
 
-.fees-table tr:hover td {
-  background: rgba(255, 255, 255, 0.02);
+.fees-table td:not(:first-child) {
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.fees-table tbody tr:hover td {
+  background: #fcfcfc;
 }
 
 .fees-table tr:last-child td {
@@ -161,15 +117,29 @@
 
 .extra-page-note {
   font-size: 0.9rem;
-  color: #9ca3af;
-  margin: 12px 0 0 0;
+  color: #666;
+  margin: 14px 0 0;
 }
 
 .extra-page-note strong {
-  color: #f3f4f6;
+  color: #111;
 }
 
+/* Actions */
+.reg-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 40px 0;
+}
 
+.reg-actions .btn {
+  font-size: 0.95rem;
+  font-family: inherit;
+}
+
+/* CMT acknowledgement */
 .cmt-acknowledgement {
   background: #ffffff;
   border: 1px solid #e5e7eb;
@@ -186,28 +156,20 @@
   color: #4b5563;
 }
 
-/* Mobile Responsive Adapts */
-@media (max-width: 768px) {
-  .reg-nav {
-    padding: 20px 24px;
-    flex-direction: column;
-    gap: 15px;
-    text-align: center;
+.cmt-acknowledgement strong {
+  color: #111;
+}
+
+@media (max-width: 900px) {
+  .reg-steps,
+  .registration-fees-container {
+    grid-template-columns: 1fr;
   }
-  .reg-nav h2 {
-    font-size: 1.4rem;
-    margin: 0;
-  }
-  .back-btn {
-    align-self: center;
-  }
-  .fees-section {
-    padding: 20px;
-  }
-  .fees-section h3 {
-    font-size: 1.15rem;
-  }
-  .fees-table th, .fees-table td {
-    padding: 12px 15px;
-  }
+}
+
+@media (max-width: 560px) {
+  .fees-section { padding: 18px; }
+  .fees-table th, .fees-table td { padding: 12px; }
+  .reg-actions .btn { width: 100%; text-align: center; }
+  .cmt-acknowledgement { padding: 22px 20px; }
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from './Navbar';
+import Footer from './Footer';
 import './PageLayout.css';
 
 const dates = [
@@ -36,7 +37,7 @@ const DatesPage = ({ navigate, currentPage }) => (
                 </div>
             </div>
         </main>
-        <footer className="footer"><p>&copy; 2027 IC2ST. All rights reserved. | Last Updated: July 07, 2026</p></footer>
+        <Footer navigate={navigate} />
     </div>
 );
 

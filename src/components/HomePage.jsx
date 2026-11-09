@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './Navbar';
+import Footer from './Footer';
 import './HomePage.css';
 import techSupportImg from '../assets/index.png';
 
@@ -20,6 +21,13 @@ const Counter = ({ target, duration = 2000 }) => {
     return <span>{count}+</span>;
 };
 
+const journey = [
+    { title: 'Explore the Tracks', date: 'Submissions open February 1st, 2027', text: 'Find the track that fits your research.', cta: 'Call for Papers', page: 'cfp' },
+    { title: 'Submit Your Paper', date: 'Deadline March 31st, 2027', text: 'Follow the IEEE template and submit via Microsoft CMT.', cta: 'Submission Guidelines', page: 'submissions' },
+    { title: 'Get Notified', date: 'Acceptance by May 31st, 2027', text: 'Revise and upload your camera-ready paper by June 20th, 2027.', cta: 'Important Dates', page: 'dates' },
+    { title: 'Register & Present', date: 'July 30th & 31st, 2027', text: 'Complete registration and present at Atria Institute of Technology.', cta: 'Registration', page: 'registration' },
+];
+
 const HomePage = ({ navigate, currentPage }) => (
     <div className="home-page">
         <Navbar currentPage={currentPage} navigate={navigate} />
@@ -38,7 +46,8 @@ const HomePage = ({ navigate, currentPage }) => (
                 </div>
                 <div className="hero-btns">
                     <button className="btn btn-primary" onClick={() => navigate('registration')}>Register Now</button>
-                    <button className="btn btn-outline" onClick={() => document.getElementById('about-section')?.scrollIntoView({ behavior: 'smooth' })}>Learn More</button>
+                    <button className="btn btn-outline" onClick={() => navigate('cfp')}>Call for Papers</button>
+                    <button className="btn btn-link" onClick={() => document.getElementById('about-section')?.scrollIntoView({ behavior: 'smooth' })}>Learn More ↓</button>
                 </div>
             </div>
         </section>
@@ -65,6 +74,24 @@ const HomePage = ({ navigate, currentPage }) => (
                         practical implementations, and innovative applications contributing to
                         technological sustainability.
                     </p>
+                </div>
+            </div>
+        </section>
+
+        {/* Author Journey Section */}
+        <section className="home-journey">
+            <div className="container">
+                <h2 className="section-title">Your Path to IC2ST-27</h2>
+                <div className="journey-grid">
+                    {journey.map((step, i) => (
+                        <button key={step.title} className="journey-card" onClick={() => navigate(step.page)}>
+                            <span className="journey-num">{i + 1}</span>
+                            <h3>{step.title}</h3>
+                            <p className="journey-date">{step.date}</p>
+                            <p>{step.text}</p>
+                            <span className="journey-link">{step.cta} →</span>
+                        </button>
+                    ))}
                 </div>
             </div>
         </section>
@@ -123,7 +150,7 @@ const HomePage = ({ navigate, currentPage }) => (
             </div>
         </section>
 
-        <footer className="footer"><p>&copy; 2027 IC2ST. All rights reserved. | Last Updated: July 07, 2026</p></footer>
+        <Footer navigate={navigate} />
     </div>
 );
 

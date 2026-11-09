@@ -1,5 +1,7 @@
 import React from 'react';
 import Navbar from './Navbar';
+import Footer from './Footer';
+import './PageLayout.css';
 import './CommitteePage.css';
 
 const CommitteePage = ({ navigate, currentPage }) => {
@@ -94,20 +96,15 @@ const CommitteePage = ({ navigate, currentPage }) => {
     };
 
     return (
-        <div className="committee-page">
-            <Navbar currentPage="committee" navigate={navigate} />
+        <div className="page-layout committee-page">
+            <Navbar currentPage={currentPage} navigate={navigate} />
 
-            {/* ── Page Hero ── */}
-            <div className="committee-hero">
+            <main className="page-main">
+            <div className="page-hero">
                 <div className="container">
-                    <div className="hero-badge">IC2ST-27</div>
+                    <span className="page-badge">IC2ST-27</span>
                     <h1>Conference Committee</h1>
                     <p>The distinguished experts driving technical excellence and innovation.</p>
-                    <div className="hero-actions">
-                        <button onClick={() => navigate('home')} className="btn btn-primary-outline">
-                            <span className="icon">←</span> Back to Home
-                        </button>
-                    </div>
                 </div>
             </div>
 
@@ -173,7 +170,7 @@ const CommitteePage = ({ navigate, currentPage }) => {
                                                     }}
                                                 />
                                                 <div className="member-image-placeholder">
-                                                    {member.name.split(' ').map(n => n[0]).join('').slice(0, 2)}
+                                                    {member.name.replace(/^(Dr|Prof)\.?\s+/i, '').split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase()}
                                                 </div>
                                             </div>
                                         </div>
@@ -198,12 +195,9 @@ const CommitteePage = ({ navigate, currentPage }) => {
                     ))}
                 </div>
             </div>
+            </main>
 
-            <footer className="footer">
-                <div className="container">
-                    <p>&copy; 2027 IC2ST. All rights reserved. | Last Updated: July 07, 2026</p>
-                </div>
-            </footer>
+            <Footer navigate={navigate} />
         </div>
     );
 };
