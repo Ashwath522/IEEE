@@ -13,8 +13,8 @@ const RegistrationPage = ({ navigate }) => {
             </div>
 
             <nav className="reg-nav">
-                <h2 style={{color: 'white', fontWeight: '900', position: 'relative', zIndex: 10, letterSpacing: '3px'}}>IC2ST-27 REGISTRATION</h2>
-                <div className="back-btn" style={{position: 'relative', zIndex: 10}} onClick={() => navigate('home')}>← Return Home</div>
+                <h2 style={{ color: 'white', fontWeight: '900', position: 'relative', zIndex: 10, letterSpacing: '3px' }}>IC2ST-27 REGISTRATION</h2>
+                <div className="back-btn" style={{ position: 'relative', zIndex: 10 }} onClick={() => navigate('home')}>← Return Home</div>
             </nav>
 
             <div className="reg-content-wrapper">
@@ -76,7 +76,7 @@ const RegistrationPage = ({ navigate }) => {
                     </div>
 
                     <div className="cmt-acknowledgement">
-                        <p>The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for software development and support.</p>
+                        <p><b>Acknowlegde</b>:The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for software development and support.</p>
                     </div>
                 </div>
             </div>
